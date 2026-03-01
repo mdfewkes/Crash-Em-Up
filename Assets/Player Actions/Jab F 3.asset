@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19aa95d1c814bf4b93f54ab45f0eb47, type: 3}
+  m_Name: Jab F 3
+  m_EditorClassIdentifier: 
+  animationClip: {fileID: 7400000, guid: 8e25d63c9f8f9684a88650d46e036867, type: 2}
+  warmupTime: 0.1
+  recoveryTime: 0.5
+  quickLinks:
+    buttonF: {fileID: 0}
+    buttonB: {fileID: 0}
+    buttonL: {fileID: 0}
+    buttonR: {fileID: 0}
+  chains:
+    buttonF: {fileID: 0}
+    buttonB: {fileID: 0}
+    buttonL: {fileID: 0}
+    buttonR: {fileID: 0}

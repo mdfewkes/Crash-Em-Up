@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19aa95d1c814bf4b93f54ab45f0eb47, type: 3}
+  m_Name: Swerve L
+  m_EditorClassIdentifier: 
+  animationClip: {fileID: 7400000, guid: d2550c82ce6eb1449b3677bebe4cd89d, type: 2}
+  warmupTime: 0.1
+  recoveryTime: 0.35
+  quickLinks:
+    buttonF: {fileID: 11400000, guid: eaa3c9868797c824e915830de2066731, type: 2}
+    buttonB: {fileID: 11400000, guid: c372ea07a8fbf2f42821901b423da092, type: 2}
+    buttonL: {fileID: 0}
+    buttonR: {fileID: 0}
+  chains:
+    buttonF: {fileID: 0}
+    buttonB: {fileID: 0}
+    buttonL: {fileID: 0}
+    buttonR: {fileID: 11400000, guid: 23a415f4af40c08498879c04167cff46, type: 2}
