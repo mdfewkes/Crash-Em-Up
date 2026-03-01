@@ -56,7 +56,7 @@ public class TestEnemy : MonoBehaviour {
 		transform.position = newPosition;
 		hitVelocity *= damppening;
 
-		//if (health <= 0.0f) Destroy(gameObject);
+		if (health <= 0.0f) Destroy(gameObject);
 	}
 
 	private void ReceiveImpactData(ImpactData impactData) {
