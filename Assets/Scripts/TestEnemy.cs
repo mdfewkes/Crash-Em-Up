@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestEnemy : MonoBehaviour {
-	float health = 10.0f;
 	public Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
 	public float damppening = 0.9f;
 	Vector2 hitVelocity = Vector2.zero;
 
 	Vector3 startingPosition;
 
+	Health healthComponent;
 
 	private DamageArea[] damageAreas;
 	private List<ImpactData> impactDataQueue = new List<ImpactData>();
@@ -21,6 +21,7 @@ public class TestEnemy : MonoBehaviour {
 		}
 
 		startingPosition = transform.position;
+		healthComponent = gameObject.GetComponent<Health>(); 
 	}
 
 	private void OnDestroy() {
@@ -37,7 +38,7 @@ public class TestEnemy : MonoBehaviour {
 				hitVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
 				hitVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
 
-				health -= 1.0f;
+				healthComponent.TakeDamage(5.0f);
 			}
 			pendingImpact = false;
 		} else if (hitVelocity.magnitude < 0.1f){
@@ -55,8 +56,6 @@ public class TestEnemy : MonoBehaviour {
 		newPosition.z += hitVelocity.y;
 		transform.position = newPosition;
 		hitVelocity *= damppening;
-
-		if (health <= 0.0f) Destroy(gameObject);
 	}
 
 	private void ReceiveImpactData(ImpactData impactData) {
