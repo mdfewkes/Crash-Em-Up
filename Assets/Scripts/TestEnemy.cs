@@ -11,7 +11,7 @@ public class TestEnemy : MonoBehaviour {
 	Health healthComponent;
 
 	private DamageArea[] damageAreas;
-	private List<ImpactData> impactDataQueue = new List<ImpactData>();
+	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
 	private bool pendingImpact = false;
 
 	void Start() {
@@ -33,12 +33,11 @@ public class TestEnemy : MonoBehaviour {
 	void Update() {
 		if (pendingImpact) {
 			while (impactDataQueue.Count > 0) {
-				ImpactData impactData = impactDataQueue[0];
-				impactDataQueue.RemoveAt(0);
+				ImpactData impactData = impactDataQueue.Dequeue();
 				hitVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
 				hitVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
 
-				healthComponent.TakeDamage(5.0f);
+				healthComponent.TakeDamage(1.0f);
 			}
 			pendingImpact = false;
 		} else if (hitVelocity.magnitude < 0.1f){
@@ -59,7 +58,7 @@ public class TestEnemy : MonoBehaviour {
 	}
 
 	private void ReceiveImpactData(ImpactData impactData) {
-		impactDataQueue.Add(impactData);
+		impactDataQueue.Enqueue(impactData);
 		pendingImpact = true;
 	}
 }
