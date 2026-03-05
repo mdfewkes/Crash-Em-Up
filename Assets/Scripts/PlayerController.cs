@@ -2,33 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : CharacterBase {
 	public Vector2 speed;
 	public ActionSet playerActions;
 	public AnimationClip idleAnimation;
 
-	enum PlayerState { Move, Action, Stunned };
-	private PlayerState state = PlayerState.Move;
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
 	private Action currentAction;
 	private Action quickAction;
 	private ActionSet availableActionSet;
 	private float actionStartTime;
-	private bool iFrames = false;
-	private DamageArea[] damageAreas;
-	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
-	private bool pendingImpact = false;
-	private Vector2 impactVelocity = Vector2.zero;
-	public Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
-	float impactVelocitydamppening = 0.9f;
 	private float controlMix = 1.0f;
 	private Coroutine controlMixCoroutine = null;
 
 	private Animation animationPlayer;
-	private Health healthComponent;
 
-	void Start() {
+	protected override void OnStart() {
 		animationPlayer = GetComponent<Animation>();
 		if (animationPlayer == null) {
 			animationPlayer = gameObject.AddComponent<Animation>();
@@ -37,75 +27,18 @@ public class PlayerController : MonoBehaviour {
 		animationPlayer.Play(idleAnimation.name);
 
 		availableActionSet = playerActions;
-
-		damageAreas = gameObject.GetComponentsInChildren<DamageArea>();
-		foreach (DamageArea damageArea in damageAreas) {
-			damageArea.OnCollision += ReceiveImpactData;
-		}
-
-		healthComponent = gameObject.GetComponent<Health>();
-		if (healthComponent == null)
-			healthComponent = gameObject.AddComponent<Health>();
 	}
 
-	private void OnDestroy() {
-		foreach (DamageArea damageArea in damageAreas) {
-			damageArea.OnCollision -= ReceiveImpactData;
-		}
-	}
-
-	void Update() {
+	protected override void MoveState() {
 		Vector3 newPosition = transform.position;
 		newPosition.x += Input.GetAxis("Horizontal") * speed.x * Time.deltaTime * controlMix;
 		newPosition.z += Input.GetAxis("Vertical") * speed.y * Time.deltaTime * controlMix;
 		transform.position = newPosition;
 
-		if (iFrames) {
-			impactDataQueue.Clear();
-			pendingImpact = false;
-		}
-		if (pendingImpact) {
-			float highestMag = 0.0f;
-			while (impactDataQueue.Count > 0) {
-				ImpactData impactData = impactDataQueue.Dequeue();
-				impactVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
-				impactVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
-
-				float mag = impactVelocity.magnitude;
-				if (mag > highestMag) {
-					highestMag = mag;
-				}
-
-				state = PlayerState.Stunned;
-			}
-			impactVelocity.Normalize();
-			impactVelocity *= highestMag;
-
-			healthComponent.TakeDamage(1.0f);
-			pendingImpact = false;
-		}
-
-		switch (state) {
-		case PlayerState.Move:
-			MoveState();
-			break;
-		case PlayerState.Action:
-			ActionState();
-			break;
-		case PlayerState.Stunned:
-			StunnedState();
-			break;
-		default:
-			MoveState();
-			break;
-		}
-	}
-
-	private void MoveState() {
 		StartActionState(CheckInputForAction());
 	}
 
-	private void ActionState() {
+	protected override void ActionState() {
 		switch (actionPhase) {
 		case ActionPhase.WarmUp:
 			ActionStateWarmup();
@@ -159,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 
 		// Transition to out of action
 		if (Time.time >= actionStartTime + currentAction.animationClip.length) {
-			state = PlayerState.Move;
+			state = CharacterState.Move;
 			currentAction = null;
 			availableActionSet = playerActions;
 			animationPlayer.Play(idleAnimation.name);
@@ -181,7 +114,7 @@ public class PlayerController : MonoBehaviour {
 		quickAction = null;
 		availableActionSet = currentAction.quickLinks;
 		actionStartTime = Time.time;
-		state = PlayerState.Action;
+		state = CharacterState.Action;
 
 		// Transition to Warmup phase
 		actionPhase = ActionPhase.WarmUp;
@@ -190,25 +123,10 @@ public class PlayerController : MonoBehaviour {
 		controlMixCoroutine = StartCoroutine(LerpControlMix(0.0f, currentAction.warmupTime));
 	}
 
-	private void StunnedState() {
-		Vector3 newPosition = transform.position;
-		newPosition.x += impactVelocity.x;
-		newPosition.z += impactVelocity.y;
-		transform.position = newPosition;
-		impactVelocity *= impactVelocitydamppening;
-
-		if (impactVelocity.magnitude <= 0.1f) {
-			state = PlayerState.Move;
-			currentAction = null;
-			availableActionSet = playerActions;
-			animationPlayer.Play(idleAnimation.name);
-			impactVelocity = Vector2.zero;
-		}
-	}
-
-	private void ReceiveImpactData(ImpactData impactData) {
-		impactDataQueue.Enqueue(impactData);
-		pendingImpact = true;
+	protected override void ExitStunnedState() {
+		currentAction = null;
+		availableActionSet = playerActions;
+		animationPlayer.Play(idleAnimation.name);
 	}
 
 	private Action CheckInputForAction() {

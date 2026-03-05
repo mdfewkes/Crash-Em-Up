@@ -1,20 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
-using static UnityEngine.InputSystem.DefaultInputActions;
 
 public class CharacterBase : MonoBehaviour {
 
-	enum CharacterState { Move, Action, Stunned };
-	private CharacterState state = CharacterState.Move;
+	protected enum CharacterState { Move, Action, Stunned };
+	protected CharacterState state = CharacterState.Move;
 
-	private bool iFrames = false;
+	protected bool iFrames = false;
 	private DamageArea[] damageAreas;
 	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
 	private bool pendingImpact = false;
 	private Vector2 impactVelocity = Vector2.zero;
 	public Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
-	float impactVelocitydamppening = 0.9f;
+	float impactVelocityDamppening = 0.9f;
 
 	private Health healthComponent;
 
@@ -56,6 +54,7 @@ public class CharacterBase : MonoBehaviour {
 				}
 
 				state = CharacterState.Stunned;
+				EnterStunnedState();
 			}
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
@@ -91,7 +90,7 @@ public class CharacterBase : MonoBehaviour {
 		newPosition.x += impactVelocity.x;
 		newPosition.z += impactVelocity.y;
 		transform.position = newPosition;
-		impactVelocity *= impactVelocitydamppening;
+		impactVelocity *= impactVelocityDamppening;
 
 		if (impactVelocity.magnitude <= 0.1f) {
 			state = CharacterState.Move;
@@ -101,6 +100,7 @@ public class CharacterBase : MonoBehaviour {
 	}
 
 	protected virtual void ExitStunnedState() { }
+	protected virtual void EnterStunnedState() { }
 
 	private void ReceiveImpactData(ImpactData impactData) {
 		impactDataQueue.Enqueue(impactData);
