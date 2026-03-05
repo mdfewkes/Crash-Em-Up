@@ -22,6 +22,7 @@ public class TestEnemy : MonoBehaviour {
 
 		startingPosition = transform.position;
 		healthComponent = gameObject.GetComponent<Health>(); 
+		if (healthComponent == null ) healthComponent = gameObject.AddComponent<Health>();
 	}
 
 	private void OnDestroy() {

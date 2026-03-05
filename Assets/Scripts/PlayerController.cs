@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	private Coroutine controlMixCoroutine = null;
 
 	private Animation animationPlayer;
+	private Health healthComponent;
 
 	void Start() {
 		animationPlayer = GetComponent<Animation>();
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour {
 		foreach (DamageArea damageArea in damageAreas) {
 			damageArea.OnCollision += ReceiveImpactData;
 		}
+
+		healthComponent = gameObject.GetComponent<Health>();
+		if (healthComponent == null)
+			healthComponent = gameObject.AddComponent<Health>();
 	}
 
 	private void OnDestroy() {
@@ -67,6 +72,7 @@ public class PlayerController : MonoBehaviour {
 
 				state = PlayerState.Stunned;
 			}
+			healthComponent.TakeDamage(1.0f);
 			pendingImpact = false;
 		}
 

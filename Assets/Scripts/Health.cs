@@ -4,7 +4,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private float startingHealth;
-    private float health;    
+    private float health = 10.0f;    
 
     void Start() 
     {
