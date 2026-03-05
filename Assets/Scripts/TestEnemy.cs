@@ -33,10 +33,18 @@ public class TestEnemy : MonoBehaviour {
 
 	void Update() {
 		if (pendingImpact) {
+			float highestMag = 0.0f;
 			while (impactDataQueue.Count > 0) {
 				ImpactData impactData = impactDataQueue.Dequeue();
 				hitVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
 				hitVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
+
+				float mag = hitVelocity.magnitude;
+				if (mag > highestMag) {
+					highestMag = mag;
+				}
+				hitVelocity.Normalize();
+				hitVelocity *= highestMag;
 
 				healthComponent.TakeDamage(1.0f);
 			}

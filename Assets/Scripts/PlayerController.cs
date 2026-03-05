@@ -65,13 +65,22 @@ public class PlayerController : MonoBehaviour {
 			pendingImpact = false;
 		}
 		if (pendingImpact) {
+			float highestMag = 0.0f;
 			while (impactDataQueue.Count > 0) {
 				ImpactData impactData = impactDataQueue.Dequeue();
 				impactVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
 				impactVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
 
+				float mag = impactVelocity.magnitude;
+				if (mag > highestMag) {
+					highestMag = mag;
+				}
+
 				state = PlayerState.Stunned;
 			}
+			impactVelocity.Normalize();
+			impactVelocity *= highestMag;
+
 			healthComponent.TakeDamage(1.0f);
 			pendingImpact = false;
 		}
