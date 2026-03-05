@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour 
 {
-    [SerializeField]
-    private float startingHealth;
-    private float health = 10.0f;    
+
+	[SerializeField]
+	private bool invincible = false;
+	[SerializeField]
+	private float startingHealth;
+	private float health = 10.0f; 
 
     void Start() 
     {
@@ -13,6 +16,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (invincible)  return;
+
         health -= damage;
         Mathf.Max(0.0f,health);
 
