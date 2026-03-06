@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
         if (invincible)  return;
 
         health -= damage;
+        Debug.Log("Damage Done: " + damage);
         Mathf.Max(0.0f,health);
 
         if(health <= 0)

@@ -8,6 +8,7 @@ public class Action : ScriptableObject {
 	public float recoveryTime = 0.0f;
 	public ActionSet quickLinks;
 	public ActionSet chains;
+	public float collisionDamage;
 }
 
 [Serializable]

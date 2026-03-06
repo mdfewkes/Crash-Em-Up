@@ -9,6 +9,9 @@ public class DamageArea : MonoBehaviour {
 	private Vector2 hitVelocity;
 	private Vector3 lastPosition;
 
+	private CharacterBase character;
+	public float collisionDamage;
+
 	void Start() {
 		if (collisionArea == null) {
 			collisionArea = GetComponent<Collider>();
@@ -17,6 +20,7 @@ public class DamageArea : MonoBehaviour {
 		}
 
 		lastPosition = collisionArea.bounds.center;
+		character = gameObject.GetComponentInParent<CharacterBase>();
 	}
 
 	void Update() {
@@ -37,10 +41,16 @@ public class DamageArea : MonoBehaviour {
 		DamageArea damageArea = other.GetComponent<DamageArea>();
 		if (!damageArea) return;
 
-		ImpactData impactData = new ImpactData();
-		impactData.hitVelocity = hitVelocity;
-		impactData.hitDirection = (other.transform.position - transform.position) * Time.deltaTime;
-
-		damageArea?.ReceiveImpact(impactData);
+		if (character)
+		{
+			if (character.CurrentCharacterState == CharacterBase.CharacterState.Action)
+			{
+				ImpactData impactData = new ImpactData();
+				impactData.hitVelocity = hitVelocity;
+				impactData.hitDirection = (other.transform.position - transform.position) * Time.deltaTime;
+				impactData.collisionDamage = collisionDamage;
+				damageArea?.ReceiveImpact(impactData);
+			}
+		}
 	}
 }

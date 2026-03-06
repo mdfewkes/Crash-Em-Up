@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour {
 
-	protected enum CharacterState { Move, Action, Stunned };
+	public enum CharacterState { Move, Action, Stunned };
 	protected CharacterState state = CharacterState.Move;
-
 	protected bool iFrames = false;
 	private DamageArea[] damageAreas;
 	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
@@ -53,13 +52,15 @@ public class CharacterBase : MonoBehaviour {
 					highestMag = mag;
 				}
 
+				healthComponent.TakeDamage(impactData.collisionDamage);
+				
 				state = CharacterState.Stunned;
 				EnterStunnedState();
 			}
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
 
-			healthComponent.TakeDamage(1.0f);
+			
 			pendingImpact = false;
 		}
 
@@ -105,5 +106,17 @@ public class CharacterBase : MonoBehaviour {
 	private void ReceiveImpactData(ImpactData impactData) {
 		impactDataQueue.Enqueue(impactData);
 		pendingImpact = true;
+	}
+
+	protected virtual void SetCollisionDamage(float damage) {
+		foreach (DamageArea damageArea in damageAreas)
+		{
+			damageArea.collisionDamage = damage;
+		}
+	}
+
+	public CharacterState CurrentCharacterState
+	{
+		get{return state;}
 	}
 }

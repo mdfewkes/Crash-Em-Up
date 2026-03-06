@@ -25,3 +25,4 @@ MonoBehaviour:
     buttonB: {fileID: 0}
     buttonL: {fileID: 0}
     buttonR: {fileID: 11400000, guid: 23a415f4af40c08498879c04167cff46, type: 2}
+  collisionDamage: 5
