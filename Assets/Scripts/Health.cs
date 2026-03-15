@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour 
 {
+    public event System.Action<Health> OnDied;
+
+    private bool isDead = false;
 
 	[SerializeField]
 	private bool invincible = false;
@@ -22,14 +25,16 @@ public class Health : MonoBehaviour
         Debug.Log("Damage Done: " + damage);
         Mathf.Max(0.0f,health);
 
-        if(health <= 0)
+        if(health <= 0 && !isDead)
         {
+            isDead = true;
            Die();
         }
     }
 
     private void Die()
     {
+        OnDied?.Invoke(this);
         Destroy(gameObject);
     }
 

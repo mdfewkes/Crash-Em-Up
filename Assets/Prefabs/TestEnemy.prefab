@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 10, y: 20}
   speed: 3
+  health: {fileID: 3268104783079393903}
 --- !u!114 &3268104783079393903
 MonoBehaviour:
   m_ObjectHideFlags: 0
