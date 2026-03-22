@@ -75,3 +75,17 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 ProjectSettings/EditorBuildSettings.asset
 ProjectSettings/ShaderGraphSettings.asset
+
+Assets/.DS_Store
+
+.vscode/extensions.json
+
+.vscode/launch.json
+
+.vscode/settings.json
+
+.DS_Store
+
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+
+Crash-Em-Up.slnx

@@ -112,7 +112,7 @@ public class PlayerController : CharacterBase {
 
 		currentAction = action;
 		quickAction = null;
-		SetCollisionDamage(currentAction.collisionDamage); //Sets damage in Damage area.
+		SetCollisionDamage(currentAction.collisionDamage, currentAction.spinoutDamage); //Sets damage in Damage area.
 		availableActionSet = currentAction.quickLinks;
 		actionStartTime = Time.time;
 		state = CharacterState.Action;

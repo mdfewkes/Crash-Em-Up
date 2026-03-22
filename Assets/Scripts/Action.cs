@@ -9,6 +9,7 @@ public class Action : ScriptableObject {
 	public ActionSet quickLinks;
 	public ActionSet chains;
 	public float collisionDamage;
+	public float spinoutDamage;
 }
 
 [Serializable]

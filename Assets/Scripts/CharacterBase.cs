@@ -42,18 +42,22 @@ public class CharacterBase : MonoBehaviour {
 		}
 		if (pendingImpact) {
 			float highestMag = 0.0f;
-			float highestDamage = 0.0f;
+			float highestCollisionDamage = 0.0f;
+			float highestSpinoutDamage = 0.0f;
 			while (impactDataQueue.Count > 0) {
 				ImpactData impactData = impactDataQueue.Dequeue();
 				impactVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
 				impactVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
 
-				float mag = impactVelocity.magnitude;
-				if (mag > highestMag) {
-					highestMag = mag;
+				if (impactVelocity.magnitude > highestMag) {
+					highestMag = impactVelocity.magnitude;
 				}
-				if (impactData.collisionDamage > highestDamage) {
-					highestDamage = impactData.collisionDamage;
+
+				if (impactData.collisionDamage > highestCollisionDamage) {
+					highestCollisionDamage = impactData.collisionDamage;
+				}
+				if (impactData.spinoutDamage > highestSpinoutDamage) {
+					highestSpinoutDamage = impactData.spinoutDamage;
 				}
 
 				
@@ -63,8 +67,8 @@ public class CharacterBase : MonoBehaviour {
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
 
-			if (highestDamage > 0.0f) {
-				healthComponent.TakeDamage(highestDamage);
+			if (highestCollisionDamage > 0.0f) {
+				healthComponent.TakeDamage(highestCollisionDamage);
 			}
 			
 			pendingImpact = false;
@@ -114,10 +118,11 @@ public class CharacterBase : MonoBehaviour {
 		pendingImpact = true;
 	}
 
-	protected virtual void SetCollisionDamage(float damage) {
+	protected virtual void SetCollisionDamage(float collision, float spinout) {
 		foreach (DamageArea damageArea in damageAreas)
 		{
-			damageArea.collisionDamage = damage;
+			damageArea.collisionDamage = collision;
+			damageArea.spinoutDamage = spinout;
 		}
 	}
 }

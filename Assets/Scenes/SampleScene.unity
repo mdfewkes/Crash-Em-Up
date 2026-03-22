@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -4, y: 0}
+  scrollSpeed: {x: -8, y: 0}
 --- !u!23 &361527784
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3092,7 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12338336c2e6f374d92e962148e120c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: -11, y: 0, z: 0}
+  speed: {x: -22, y: 0, z: 0}
   minPos: {x: -100, y: -9999, z: -9999}
   maxPos: {x: 200, y: 9999, z: 9999}
 --- !u!1001 &731505342
@@ -4473,7 +4473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -0.5, y: 0}
+  scrollSpeed: {x: -1.1, y: 0}
 --- !u!23 &1071485642
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5543,7 +5543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -1, y: 0}
+  scrollSpeed: {x: -2, y: 0}
 --- !u!23 &1438403257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6851,7 +6851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -1, y: 0}
+  scrollSpeed: {x: -2, y: 0}
 --- !u!23 &1709889582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7038,7 +7038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -1, y: 0}
+  scrollSpeed: {x: -2, y: 0}
 --- !u!23 &1746285831
 MeshRenderer:
   m_ObjectHideFlags: 0

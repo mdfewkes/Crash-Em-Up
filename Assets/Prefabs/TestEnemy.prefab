@@ -82,6 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 416306917579077023}
   collisionDamage: 0
+  spinoutDamage: 0
+  collisionReceivedMultiplier: 0.5
+  spinoutReceivedMultiplier: 1
 --- !u!65 &416306917579077023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,6 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 6600272518486318275}
   collisionDamage: 0
+  spinoutDamage: 0
+  collisionReceivedMultiplier: 1
+  spinoutReceivedMultiplier: 0.5
 --- !u!65 &6600272518486318275
 BoxCollider:
   m_ObjectHideFlags: 0

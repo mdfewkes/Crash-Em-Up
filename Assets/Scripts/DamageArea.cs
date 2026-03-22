@@ -10,6 +10,10 @@ public class DamageArea : MonoBehaviour {
 	private Vector3 lastPosition;
 
 	public float collisionDamage;
+	public float spinoutDamage;
+
+	public float collisionReceivedMultiplier;
+	public float spinoutReceivedMultiplier;
 
 	void Start() {
 		if (collisionArea == null) {
@@ -32,6 +36,8 @@ public class DamageArea : MonoBehaviour {
 	}
 
 	public void ReceiveImpact(ImpactData impactData) {
+		impactData.collisionDamage = impactData.collisionDamage * collisionReceivedMultiplier;
+		impactData.spinoutDamage = impactData.spinoutDamage * spinoutReceivedMultiplier;
 		OnCollision?.Invoke(impactData);
 	}
 
