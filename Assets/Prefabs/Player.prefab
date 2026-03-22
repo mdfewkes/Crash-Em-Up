@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6953940792920360833}
   - component: {fileID: 2032519777054065570}
   - component: {fileID: 1056793185057900294}
+  - component: {fileID: 4802697996164181074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -90,6 +91,7 @@ MonoBehaviour:
     buttonL: {fileID: 11400000, guid: 9b168b520a4078243b929bc3c45a469a, type: 2}
     buttonR: {fileID: 11400000, guid: dcb46b653998a0b439aeb459e0e52e41, type: 2}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  disableControls: 0
 --- !u!111 &6953940792920360833
 Animation:
   m_ObjectHideFlags: 0
@@ -147,6 +149,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 10
   zRange: 7
+--- !u!114 &4802697996164181074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264766843483333341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7442c4b80b7d74286d7ed7aa7cb73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPostionX: -15
+  endPostionX: -7.5
+  speed: 2
 --- !u!1 &4427743478762167388
 GameObject:
   m_ObjectHideFlags: 0

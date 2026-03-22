@@ -17,8 +17,34 @@ public class PlayerController : CharacterBase {
 	private Coroutine controlMixCoroutine = null;
 
 	private Animation animationPlayer;
+	[SerializeField] private bool disableControls = false;
 
-	protected override void OnStart() {
+
+    private void OnEnable()
+    {
+        GameManager.OnGameStart += GameManager_OnGameStart;
+        PlayerIntro.OnReached += PlayerIntro_OnReached;
+    }
+
+    private void PlayerIntro_OnReached()
+    {
+        transform.GetComponent<PlayerBound>().enabled = true;
+        disableControls = false;
+    }
+
+    private void GameManager_OnGameStart()
+    {
+		transform.GetComponent<PlayerBound>().enabled = false;
+		disableControls = true;
+    }
+
+    private void OnDisable()
+    {
+        PlayerIntro.OnReached -= PlayerIntro_OnReached;
+        GameManager.OnGameStart -= GameManager_OnGameStart;
+    }
+
+    protected override void OnStart() {
 		animationPlayer = GetComponent<Animation>();
 		if (animationPlayer == null) {
 			animationPlayer = gameObject.AddComponent<Animation>();
@@ -30,12 +56,15 @@ public class PlayerController : CharacterBase {
 	}
 
 	protected override void MoveState() {
-		Vector3 newPosition = transform.position;
-		newPosition.x += Input.GetAxis("Horizontal") * speed.x * Time.deltaTime * controlMix;
-		newPosition.z += Input.GetAxis("Vertical") * speed.y * Time.deltaTime * controlMix;
-		transform.position = newPosition;
+		if (!disableControls)
+		{
+			Vector3 newPosition = transform.position;
+			newPosition.x += Input.GetAxis("Horizontal") * speed.x * Time.deltaTime * controlMix;
+			newPosition.z += Input.GetAxis("Vertical") * speed.y * Time.deltaTime * controlMix;
+			transform.position = newPosition;
 
-		StartActionState(CheckInputForAction());
+			StartActionState(CheckInputForAction());
+		}
 	}
 
 	protected override void ActionState() {

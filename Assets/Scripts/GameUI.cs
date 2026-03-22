@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -21,14 +22,25 @@ public class GameUI : MonoBehaviour
         {
             OnRestartButtonClick?.Invoke();
         });
+    }
 
-        GameManager.OnRivalCarsCountUpdate += GameManager_OnRivalCarsCountUpdate;
+    private void OnEnable()
+    {
         GameManager.OnGameStart += GameManager_OnGameStart;
+        GameManager.OnRivalCarsCountUpdate += GameManager_OnRivalCarsCountUpdate;
         GameManager.OnGameWon += GameManager_OnGameWon;
         GameManager.OnTimerUpdate += GameManager_OnTimerUpdate;
         GameManager.OnGameLost += GameManager_OnGameLost;
     }
 
+    private void OnDisable()
+    {
+        GameManager.OnGameStart -= GameManager_OnGameStart;
+        GameManager.OnRivalCarsCountUpdate -= GameManager_OnRivalCarsCountUpdate;
+        GameManager.OnGameWon -= GameManager_OnGameWon;
+        GameManager.OnTimerUpdate -= GameManager_OnTimerUpdate;
+        GameManager.OnGameLost -= GameManager_OnGameLost;
+    }
 
     private void GameManager_OnGameLost()
     {
@@ -52,25 +64,21 @@ public class GameUI : MonoBehaviour
         restartButton.gameObject.SetActive(true);
     }
 
-    private async void GameManager_OnGameStart()
+    private  void GameManager_OnGameStart()
     {
         endResultText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-        objectiveText.gameObject.SetActive(true);
         tutorialText.gameObject.SetActive(true);
-        await Task.Delay(5000);
-        objectiveText.gameObject.SetActive(false);
-        tutorialText.gameObject.SetActive(false);
+        StartCoroutine(HideUI());
+        
 
     }
 
-    private void OnDestroy()
+    IEnumerator HideUI()
     {
-        GameManager.OnRivalCarsCountUpdate -= GameManager_OnRivalCarsCountUpdate;
-        GameManager.OnGameStart -= GameManager_OnGameStart;
-        GameManager.OnGameWon -= GameManager_OnGameWon;
-        GameManager.OnTimerUpdate -= GameManager_OnTimerUpdate;
-        GameManager.OnGameLost -= GameManager_OnGameLost;
+        yield return new WaitForSeconds(5);
+        objectiveText.gameObject.SetActive(false);
+        tutorialText.gameObject.SetActive(false);
     }
 
     private void GameManager_OnRivalCarsCountUpdate(int enemyCount,int enemyCountTotal)
