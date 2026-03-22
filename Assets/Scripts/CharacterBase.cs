@@ -42,6 +42,7 @@ public class CharacterBase : MonoBehaviour {
 		}
 		if (pendingImpact) {
 			float highestMag = 0.0f;
+			float highestDamage = 0.0f;
 			while (impactDataQueue.Count > 0) {
 				ImpactData impactData = impactDataQueue.Dequeue();
 				impactVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
@@ -51,8 +52,10 @@ public class CharacterBase : MonoBehaviour {
 				if (mag > highestMag) {
 					highestMag = mag;
 				}
+				if (impactData.collisionDamage > highestDamage) {
+					highestDamage = impactData.collisionDamage;
+				}
 
-				healthComponent.TakeDamage(impactData.collisionDamage);
 				
 				state = CharacterState.Stunned;
 				EnterStunnedState();
@@ -60,6 +63,9 @@ public class CharacterBase : MonoBehaviour {
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
 
+			if (highestDamage > 0.0f) {
+				healthComponent.TakeDamage(highestDamage);
+			}
 			
 			pendingImpact = false;
 		}
@@ -113,10 +119,5 @@ public class CharacterBase : MonoBehaviour {
 		{
 			damageArea.collisionDamage = damage;
 		}
-	}
-
-	public CharacterState CurrentCharacterState
-	{
-		get{return state;}
 	}
 }
