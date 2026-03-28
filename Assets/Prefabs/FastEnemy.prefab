@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 2087394924563482185}
   - component: {fileID: 3268104783079393903}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 10, y: 20}
-  speed: 3
+  speed: 4
   health: {fileID: 3268104783079393903}
 --- !u!114 &3268104783079393903
 MonoBehaviour:
@@ -359,7 +359,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c6f924832ae84bb5b64af1265f78934, type: 2}
+  - {fileID: 2100000, guid: 5e911587c9a02474583f57bd2a103399, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
