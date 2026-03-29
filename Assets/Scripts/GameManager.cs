@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         {
             currenttime -= Time.deltaTime;
             OnTimerUpdate?.Invoke(currenttime);
-        }else if(!isGameLost)
+        }else if(!isGameLost && !TutorialManger.inTutorial)
         {
             isGameLost = true;
             OnGameLost?.Invoke();
