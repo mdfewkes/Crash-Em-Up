@@ -4,10 +4,12 @@ public class TestEnemy : CharacterBase {
 	[SerializeField] float speed = 3.0f;
 	[SerializeField] private Health health;
 
-	Vector3 startingPosition;
+	SteeringComponent steeringComponent;
+
 
 	protected override void OnStart() {
-		startingPosition = transform.position;
+		steeringComponent = GetComponent<SteeringComponent>();
+		steeringComponent.SetTarget(transform.position);
 		health.OnDied += Health_OnDied;
 
     }
@@ -30,15 +32,10 @@ public class TestEnemy : CharacterBase {
     }
 
 	protected override void MoveState() {
-		Vector3 pointToStart = startingPosition - transform.position;
-		if (pointToStart.magnitude > speed) {
-			pointToStart = pointToStart.normalized * speed;
-		}
-		Vector2 goHome = new Vector2(pointToStart.x, pointToStart.z) * Time.deltaTime;
-
 		Vector3 newPosition = transform.position;
-		newPosition.x += goHome.x;
-		newPosition.z += goHome.y;
+		Vector2 steeringVector = steeringComponent.UpdateSteeringVector();
+		newPosition.x += steeringVector.x;
+		newPosition.z += steeringVector.y;
 		transform.position = newPosition;
 	}
 }
