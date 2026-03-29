@@ -14,6 +14,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI objectiveText;
     [SerializeField] private TextMeshProUGUI tutorialText;
     [SerializeField] private TextMeshProUGUI endResultText;
+    [SerializeField] private TextMeshProUGUI goText;
     [SerializeField] private Button restartButton;
 
     private void Awake()
@@ -24,6 +25,11 @@ public class GameUI : MonoBehaviour
         });
     }
 
+    private void Start()
+    {
+        goText?.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         GameManager.OnGameStart += GameManager_OnGameStart;
@@ -31,6 +37,12 @@ public class GameUI : MonoBehaviour
         GameManager.OnGameWon += GameManager_OnGameWon;
         GameManager.OnTimerUpdate += GameManager_OnTimerUpdate;
         GameManager.OnGameLost += GameManager_OnGameLost;
+        GameTimer.OnTimeExceed += GameTimer_OnTimeExceed;
+    }
+
+    private void GameTimer_OnTimeExceed()
+    {
+        goText?.gameObject.SetActive(true);
     }
 
     private void OnDisable()
@@ -40,6 +52,7 @@ public class GameUI : MonoBehaviour
         GameManager.OnGameWon -= GameManager_OnGameWon;
         GameManager.OnTimerUpdate -= GameManager_OnTimerUpdate;
         GameManager.OnGameLost -= GameManager_OnGameLost;
+        GameTimer.OnTimeExceed -= GameTimer_OnTimeExceed;
     }
 
     private void GameManager_OnGameLost()
@@ -68,7 +81,7 @@ public class GameUI : MonoBehaviour
     {
         endResultText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-        tutorialText.gameObject.SetActive(true);
+        tutorialText?.gameObject.SetActive(true);
         StartCoroutine(HideUI());
         
 
@@ -78,7 +91,7 @@ public class GameUI : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         objectiveText.gameObject.SetActive(false);
-        tutorialText.gameObject.SetActive(false);
+        tutorialText?.gameObject.SetActive(false);
     }
 
     private void GameManager_OnRivalCarsCountUpdate(int enemyCount,int enemyCountTotal)
