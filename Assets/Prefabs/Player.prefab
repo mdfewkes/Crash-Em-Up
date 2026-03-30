@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2032519777054065570}
   - component: {fileID: 1056793185057900294}
   - component: {fileID: 4802697996164181074}
+  - component: {fileID: -7371215255832642727}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 10
   zRange: 7
+  boundXForward: 1
 --- !u!114 &4802697996164181074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +166,44 @@ MonoBehaviour:
   startingPostionX: -15
   endPostionX: -7.5
   speed: 2
+--- !u!114 &-7371215255832642727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264766843483333341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12121fd65f1d1461f83dae3f54fac01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  pullStrength: -1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4427743478762167388
 GameObject:
   m_ObjectHideFlags: 0
