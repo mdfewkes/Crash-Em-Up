@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -23,11 +24,16 @@ public class TutorialManger : MonoBehaviour
         PlayerIntro.OnReached -= PlayerIntro_OnReached;
     }
 
-    private async void PlayerIntro_OnReached()
+    private  void PlayerIntro_OnReached()
     {
-        await Task.Delay(1000);
+        StartCoroutine(StartTutorial());
+    }
+
+    IEnumerator StartTutorial()
+    {
+        yield return new WaitForSeconds(1);
         OnStep?.Invoke(0);
-        await Task.Delay(5000);
+        yield return new WaitForSeconds(5);
         OnStep?.Invoke(1);
     }
 }
