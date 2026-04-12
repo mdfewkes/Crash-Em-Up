@@ -6,7 +6,8 @@ public class PlayerBound : MonoBehaviour
 {
     [SerializeField] private float xRange;
     [SerializeField] private float zRange;
-    [SerializeField] private bool boundXForward = true;
+    [SerializeField] private static bool boundXForward = true;
+    public static event System.Action OnPlayerExceeedXRange;
 
 
     private void OnEnable()
@@ -17,6 +18,11 @@ public class PlayerBound : MonoBehaviour
     private void GameTimer_OnTimeExceed()
     {
         boundXForward = false;
+    }
+
+    public static void SetBoundXForward(bool value)
+    {
+        boundXForward = value;
     }
 
     private void OnDisable()
@@ -34,7 +40,7 @@ public class PlayerBound : MonoBehaviour
 
         if(transform.position.x > xRange + 5)
         {
-            SceneManager.LoadScene(1);
+            OnPlayerExceeedXRange?.Invoke();
         }
     }
 }

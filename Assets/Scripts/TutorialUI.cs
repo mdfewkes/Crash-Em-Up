@@ -15,15 +15,35 @@ public class TutorialUI : MonoBehaviour
         TutorialManger.OnStep += TutorialManger_OnStep;
     }
 
-    private void TutorialManger_OnStep(int step)
+    private void TutorialManger_OnStep(int step,int tutorialIndex)
     {
-        switch (step)
+        switch (tutorialIndex)
         {
             case 0:
-                tutorialText.gameObject.SetActive(true);
+                switch (step)
+                {
+                    case 0:
+                        tutorialText.gameObject.SetActive(true);
+                        break;
+                    case 1:
+                        tutorialText.gameObject.SetActive(false);
+                        break;
+                }
                 break;
             case 1:
-                tutorialText.gameObject.SetActive(false);
+                switch (step)
+                {
+                    case 0:
+                        tutorialText.text = "I,J,K,L = Attack";
+                        tutorialText.gameObject.SetActive(true);
+                        break;
+                    case 1:
+                        tutorialText.gameObject.SetActive(false);
+                        break;
+                }
+                break;
+
+            default:
                 break;
         }
     }
