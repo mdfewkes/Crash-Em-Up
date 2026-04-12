@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        InputSystem.actions.FindAction("ESC").performed += GameManager_performed;
+    }
+
+    private void GameManager_performed(InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnDisable()
+    {
+        InputSystem.actions.FindAction("ESC").performed -= GameManager_performed;
+    }
     private void Start()
     {
         currenttime = timer;

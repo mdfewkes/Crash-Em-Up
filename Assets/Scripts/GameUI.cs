@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -16,12 +17,18 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endResultText;
     [SerializeField] private TextMeshProUGUI goText;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button escButton;
 
     private void Awake()
     {
         restartButton.onClick.AddListener(() =>
         {
             OnRestartButtonClick?.Invoke();
+        });
+
+        escButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(0);
         });
     }
 

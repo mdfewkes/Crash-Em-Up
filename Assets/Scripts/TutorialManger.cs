@@ -44,7 +44,10 @@ public class TutorialManger : MonoBehaviour
             tutorialIndex++;
         }
         if(tutorialIndex==2)
+        {
+            tutorialIndex = 0;
         SceneManager.LoadScene(1);
+        }
         else
             SceneManager.LoadScene(2);
     }
