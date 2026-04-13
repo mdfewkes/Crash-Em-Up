@@ -7,7 +7,7 @@ public class SteeringComponent : MonoBehaviour {
     Transform targetObject;
     Vector2 steeringVector;
 
-	void Start() {
+	void Awake() {
 		targetObject = transform;
 	}
 
