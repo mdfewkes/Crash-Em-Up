@@ -19,10 +19,11 @@ public class TutorialManger : MonoBehaviour
         switch (tutorialIndex)
         {
             case 0:
+                PlayerBound.SetBoundXForward(false);
                 break;
             case 1:
                 GameObject.FindFirstObjectByType<GameTimer>().gameObject.SetActive(false);
-                PlayerBound.SetBoundXForward(false);
+                PlayerBound.SetBoundXForward(true);
                 foreach (var tutorial in tutorialCars)
                     tutorial.gameObject.SetActive(true);
                 break;
@@ -46,7 +47,7 @@ public class TutorialManger : MonoBehaviour
         if(tutorialIndex==2)
         {
             tutorialIndex = 0;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         }
         else
             SceneManager.LoadScene(2);

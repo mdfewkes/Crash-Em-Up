@@ -13,7 +13,6 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rivalCarsText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI objectiveText;
-    [SerializeField] private TextMeshProUGUI tutorialText;
     [SerializeField] private TextMeshProUGUI endResultText;
     [SerializeField] private TextMeshProUGUI goText;
     [SerializeField] private Button restartButton;
@@ -40,11 +39,18 @@ public class GameUI : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnGameStart += GameManager_OnGameStart;
-        GameManager.OnRivalCarsCountUpdate += GameManager_OnRivalCarsCountUpdate;
+        RivalCarCounter.OnRivalCarsCountUpdate += RivalCarCounter_OnRivalCarsCountUpdate;
+        RivalCarCounter.OnAllRivalCarDestroyed += RivalCarCounter_OnAllRivalCarDestroyed;
         GameManager.OnGameWon += GameManager_OnGameWon;
-        GameManager.OnTimerUpdate += GameManager_OnTimerUpdate;
+        GameTimer.OnTimerUpdate += GameTimer_OnTimerUpdate;
         GameManager.OnGameLost += GameManager_OnGameLost;
         GameTimer.OnTimeExceed += GameTimer_OnTimeExceed;
+    }
+
+    private void RivalCarCounter_OnAllRivalCarDestroyed()
+    {
+        if(TutorialManger.inTutorial)
+            goText?.gameObject.SetActive(true);    
     }
 
     private void GameTimer_OnTimeExceed()
@@ -55,11 +61,12 @@ public class GameUI : MonoBehaviour
     private void OnDisable()
     {
         GameManager.OnGameStart -= GameManager_OnGameStart;
-        GameManager.OnRivalCarsCountUpdate -= GameManager_OnRivalCarsCountUpdate;
+        RivalCarCounter.OnRivalCarsCountUpdate -= RivalCarCounter_OnRivalCarsCountUpdate;
         GameManager.OnGameWon -= GameManager_OnGameWon;
-        GameManager.OnTimerUpdate -= GameManager_OnTimerUpdate;
+        GameTimer.OnTimerUpdate -= GameTimer_OnTimerUpdate;
         GameManager.OnGameLost -= GameManager_OnGameLost;
         GameTimer.OnTimeExceed -= GameTimer_OnTimeExceed;
+        RivalCarCounter.OnAllRivalCarDestroyed -= RivalCarCounter_OnAllRivalCarDestroyed;
     }
 
     private void GameManager_OnGameLost()
@@ -71,7 +78,7 @@ public class GameUI : MonoBehaviour
 
     }
 
-    private void GameManager_OnTimerUpdate(float obj)
+    private void GameTimer_OnTimerUpdate(float obj)
     {
         timerText.text = Convert.ToInt16(  obj).ToString();
     }
@@ -88,7 +95,6 @@ public class GameUI : MonoBehaviour
     {
         endResultText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-        tutorialText?.gameObject.SetActive(true);
         StartCoroutine(HideUI());
         
 
@@ -98,11 +104,11 @@ public class GameUI : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         objectiveText.gameObject.SetActive(false);
-        tutorialText?.gameObject.SetActive(false);
     }
 
-    private void GameManager_OnRivalCarsCountUpdate(int enemyCount,int enemyCountTotal)
+    private void RivalCarCounter_OnRivalCarsCountUpdate(int enemyCount,int enemyCountTotal)
     {
         rivalCarsText.text = $"Rival Cars: {enemyCount}/{enemyCountTotal}";
+       
     }
 }
