@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab23e24fe70612f4da6b191d7dab476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackMultiplier: {x: 10, y: 20}
+  knockbackMultiplier: {x: 25, y: 10}
   speed: {x: 7, y: 4}
   playerActions:
     buttonF: {fileID: 11400000, guid: 7adf978fa65740042b43d1b94fbb2d31, type: 2}
@@ -152,7 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRange: 10
   zRange: 7
-  boundXForward: 1
 --- !u!114 &4802697996164181074
 MonoBehaviour:
   m_ObjectHideFlags: 0

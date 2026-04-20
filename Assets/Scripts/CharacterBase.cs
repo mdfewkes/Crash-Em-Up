@@ -46,11 +46,11 @@ public class CharacterBase : MonoBehaviour {
 			float highestSpinoutDamage = 0.0f;
 			while (impactDataQueue.Count > 0) {
 				ImpactData impactData = impactDataQueue.Dequeue();
-				impactVelocity += new Vector2(impactData.hitVelocity.x * knockbackMultiplier.x, impactData.hitVelocity.y * knockbackMultiplier.y);
-				impactVelocity += new Vector2(impactData.hitDirection.x * knockbackMultiplier.x, impactData.hitDirection.z * knockbackMultiplier.y);
+				// impactVelocity += impactData.hitVelocity;
+				impactVelocity += new Vector2(impactData.hitDirection.x, impactData.hitDirection.z);
 
-				if (impactVelocity.magnitude > highestMag) {
-					highestMag = impactVelocity.magnitude;
+				if (impactData.hitMagnitude > highestMag) {
+					highestMag = impactData.hitMagnitude;
 				}
 
 				if (impactData.collisionDamage > highestCollisionDamage) {
@@ -66,6 +66,9 @@ public class CharacterBase : MonoBehaviour {
 			}
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
+			impactVelocity *= knockbackMultiplier;
+			Debug.Log("highestMag " + highestMag);
+			Debug.Log("impactVelocity " + impactVelocity);
 
 			if (highestCollisionDamage > 0.0f) {
 				healthComponent.TakeDamage(highestCollisionDamage);

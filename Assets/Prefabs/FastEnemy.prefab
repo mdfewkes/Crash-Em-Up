@@ -282,8 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe7cd35988add148804fab929cf991d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackMultiplier: {x: 10, y: 20}
-  speed: 4
+  knockbackMultiplier: {x: 25, y: 15}
   health: {fileID: 3268104783079393903}
 --- !u!114 &3268104783079393903
 MonoBehaviour:
@@ -349,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1d60f9c0a6b42f6a45a6b6d161f293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: {x: 5, y: 3}
 --- !u!1 &8293103160379483569
 GameObject:
   m_ObjectHideFlags: 0

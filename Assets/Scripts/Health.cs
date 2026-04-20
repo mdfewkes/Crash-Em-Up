@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (invincible)  return;
+        if (invincible) return;
 
         health -= damage;
         Debug.Log("Damage Done: " + damage);

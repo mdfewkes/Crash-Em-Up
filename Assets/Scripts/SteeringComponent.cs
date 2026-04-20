@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class SteeringComponent : MonoBehaviour {
-    public float speed;
+    public Vector2 speed;
 
     Vector2 target;
     Transform targetObject;

@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class TestEnemy : CharacterBase {
-	[SerializeField] float speed = 3.0f;
 	[SerializeField] private Health health;
 
 	SteeringComponent steeringComponent;

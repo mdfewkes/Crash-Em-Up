@@ -4,7 +4,7 @@ using UnityEngine;
 public class DamageArea : MonoBehaviour {
 	public event Action<ImpactData> OnCollision;
 
-	public Collider collisionArea;
+	[SerializeField] private Collider collisionArea;
 
 	private Vector2 hitVelocity;
 	private Vector3 lastPosition;
@@ -27,10 +27,12 @@ public class DamageArea : MonoBehaviour {
 
 	void Update() {
 		Vector3 newPosition = collisionArea.bounds.center;
-		Vector3 newOffset = newPosition - lastPosition;
-		hitVelocity = new Vector2(newOffset.x, newOffset.z);
+		if ( newPosition != lastPosition) {
+			Vector3 newOffset = newPosition - lastPosition;
+			hitVelocity = new Vector2(newOffset.x, newOffset.z);
 
-		lastPosition = newPosition;
+			lastPosition = newPosition;
+		}
 
 		Debug.DrawLine(newPosition, newPosition + new Vector3(hitVelocity.x*10, 0, hitVelocity.y*10), Color.cyan);
 	}
@@ -45,10 +47,13 @@ public class DamageArea : MonoBehaviour {
 		DamageArea damageArea = other.GetComponent<DamageArea>();
 		if (!damageArea) return;
 
+		Debug.Log(hitVelocity + " " + hitVelocity.magnitude);
 		ImpactData impactData = new ImpactData();
-		impactData.hitVelocity = hitVelocity;
-		impactData.hitDirection = (other.transform.position - transform.position) * Time.deltaTime;
+		impactData.hitMagnitude = hitVelocity.magnitude;
+		impactData.hitVelocity = hitVelocity.normalized;
+		impactData.hitDirection = (other.transform.position - transform.position).normalized;
 		impactData.collisionDamage = collisionDamage;
+		impactData.spinoutDamage = spinoutDamage;
 		damageArea?.ReceiveImpact(impactData);
 	}
 }
