@@ -13,9 +13,8 @@ public class EnemySpawner : MonoBehaviour
 
     private bool isSpawningEnemies = true;
 
-    //To do: Add a type that can determine if the spawner works with a collider
-    //or spawner spawns object immediately when game starts
-    //Also add an option to make cars chase the player or make cars surround the player.
+    [SerializeField] private GameObject triggerObject;
+    
 
     private void Update()
     {
@@ -46,9 +45,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void SetInstantSpawn()
+    {
+        isSpawningEnemies = true;
+        triggerObject.SetActive(false);
+    }
+
     public void StartEnemySpawn()
     {
-        //To Do: Add a collider to the child that can trigger this
         isSpawningEnemies = true;
     }
 }
