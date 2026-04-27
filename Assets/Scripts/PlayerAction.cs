@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerAction", menuName = "PlayerAction")]
-public class Action : ScriptableObject {
+public class PlayerAction : ScriptableObject {
 	public AnimationClip animationClip;
 	public float warmupTime = 0.0f;
 	public float recoveryTime = 0.0f;
@@ -14,8 +14,8 @@ public class Action : ScriptableObject {
 
 [Serializable]
 public struct ActionSet {
-	public Action buttonF;
-	public Action buttonB;
-	public Action buttonL;
-	public Action buttonR;
+	public PlayerAction buttonF;
+	public PlayerAction buttonB;
+	public PlayerAction buttonL;
+	public PlayerAction buttonR;
 }

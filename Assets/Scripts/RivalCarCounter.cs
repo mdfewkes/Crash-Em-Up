@@ -18,7 +18,7 @@ public class RivalCarCounter : MonoBehaviour
     IEnumerator CheckRivalCarCount()
     {
         yield return new WaitForEndOfFrame();
-        enemyCountTotal = FindObjectsByType<TestEnemy>(FindObjectsSortMode.None).Length;
+        enemyCountTotal = FindObjectsByType<EnemyBase>(FindObjectsSortMode.None).Length;
         enemyCount = enemyCountTotal;
 
         OnRivalCarsCountUpdate?.Invoke(enemyCount, enemyCountTotal);
@@ -27,12 +27,12 @@ public class RivalCarCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        TestEnemy.OnEnemyDestroyed += TestEnemy_OnEnemyDestroyed;
+        EnemyBase.OnEnemyDestroyed += TestEnemy_OnEnemyDestroyed;
     }
 
     private void OnDisable()
     {
-        TestEnemy.OnEnemyDestroyed -= TestEnemy_OnEnemyDestroyed;
+        EnemyBase.OnEnemyDestroyed -= TestEnemy_OnEnemyDestroyed;
     }
 
     private void TestEnemy_OnEnemyDestroyed()

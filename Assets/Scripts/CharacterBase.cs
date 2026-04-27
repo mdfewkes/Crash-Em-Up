@@ -2,20 +2,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterBase : MonoBehaviour {
+	[SerializeField] private Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
 
-	public enum CharacterState { Move, Action, Stunned };
+	protected enum CharacterState { Move, Action, Stunned };
 	protected CharacterState state = CharacterState.Move;
 	protected bool iFrames = false;
 	private DamageArea[] damageAreas;
 	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
 	private bool pendingImpact = false;
 	private Vector2 impactVelocity = Vector2.zero;
-	public Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
 	float impactVelocityDamppening = 0.9f;
 
-	private Health healthComponent;
+	protected Health healthComponent;
 
-	void Start() {
+	protected void Start() {
 		damageAreas = gameObject.GetComponentsInChildren<DamageArea>();
 		foreach (DamageArea damageArea in damageAreas) {
 			damageArea.OnCollision += ReceiveImpactData;

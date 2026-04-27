@@ -5679,7 +5679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8175268080921009099, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6141,6 +6141,10 @@ PrefabInstance:
     - target: {fileID: 8175268080921009099, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       propertyPath: m_Name
       value: FastEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175268080921009099, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

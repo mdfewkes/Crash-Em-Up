@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : CharacterBase {
-	public Vector2 speed;
-	public ActionSet playerActions;
-	public AnimationClip idleAnimation;
+	[SerializeField] private Vector2 speed;
+	[SerializeField] private ActionSet playerActions;
+	[SerializeField] private AnimationClip idleAnimation;
 
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
-	private Action currentAction;
-	private Action quickAction;
+	private PlayerAction currentAction;
+	private PlayerAction quickAction;
 	private ActionSet availableActionSet;
 	private float actionStartTime;
 	private float controlMix = 1.0f;
@@ -44,7 +44,9 @@ public class PlayerController : CharacterBase {
         GameManager.OnGameStart -= GameManager_OnGameStart;
     }
 
-    protected override void OnStart() {
+    new void Start() {
+		base.Start();
+
 		animationPlayer = GetComponent<Animation>();
 		if (animationPlayer == null) {
 			animationPlayer = gameObject.AddComponent<Animation>();
@@ -82,7 +84,7 @@ public class PlayerController : CharacterBase {
 	}
 
 	private void ActionStateWarmup() {
-		Action checkAction = CheckInputForAction();
+		PlayerAction checkAction = CheckInputForAction();
 		if (checkAction != null) {
 			quickAction = checkAction;
 		}
@@ -95,7 +97,7 @@ public class PlayerController : CharacterBase {
 	}
 
 	private void ActionStateAction() {
-		Action checkAction = CheckInputForAction();
+		PlayerAction checkAction = CheckInputForAction();
 		if (checkAction != null) {
 			quickAction = checkAction;
 		}
@@ -128,7 +130,7 @@ public class PlayerController : CharacterBase {
 		}
 	}
 
-	private void StartActionState(Action action) {
+	private void StartActionState(PlayerAction action) {
 		if (!action)
 			return;
 
@@ -159,7 +161,7 @@ public class PlayerController : CharacterBase {
 		animationPlayer.Play(idleAnimation.name);
 	}
 
-	private Action CheckInputForAction() {
+	private PlayerAction CheckInputForAction() {
 		if (Input.GetButtonDown("ActionF")) {
 			return availableActionSet.buttonF;
 		} else if (Input.GetButtonDown("ActionB")) {
