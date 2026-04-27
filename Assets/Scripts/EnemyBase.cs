@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : CharacterBase {
-	protected SteeringComponent steeringComponent;
+	public SteeringComponent steeringComponent;
 	private Animation animationPlayer;
 
     public static event Action OnEnemyDestroyed;
