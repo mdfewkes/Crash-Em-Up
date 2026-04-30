@@ -15,7 +15,7 @@ public class CharacterBase : MonoBehaviour {
 
 	protected Health healthComponent;
 
-	protected void Start() {
+	virtual protected void Start() {
 		damageAreas = gameObject.GetComponentsInChildren<DamageArea>();
 		foreach (DamageArea damageArea in damageAreas) {
 			damageArea.OnCollision += ReceiveImpactData;
@@ -67,8 +67,6 @@ public class CharacterBase : MonoBehaviour {
 			impactVelocity.Normalize();
 			impactVelocity *= highestMag;
 			impactVelocity *= knockbackMultiplier;
-			Debug.Log("highestMag " + highestMag);
-			Debug.Log("impactVelocity " + impactVelocity);
 
 			if (highestCollisionDamage > 0.0f) {
 				healthComponent.TakeDamage(highestCollisionDamage);

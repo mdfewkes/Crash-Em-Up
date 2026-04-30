@@ -47,7 +47,6 @@ public class DamageArea : MonoBehaviour {
 		DamageArea damageArea = other.GetComponent<DamageArea>();
 		if (!damageArea) return;
 
-		Debug.Log(hitVelocity + " " + hitVelocity.magnitude);
 		ImpactData impactData = new ImpactData();
 		impactData.hitMagnitude = hitVelocity.magnitude;
 		impactData.hitVelocity = hitVelocity.normalized;

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class EnemyAction {
 	public string name;
 	public AnimationClip animationClip;

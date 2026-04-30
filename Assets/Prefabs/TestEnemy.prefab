@@ -5299,6 +5299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7877656091663393852}
   - component: {fileID: 2087394924563482185}
+  - component: {fileID: 8239193323537161144}
   - component: {fileID: 3268104783079393903}
   - component: {fileID: 3805145810081957665}
   - component: {fileID: -4552998919120870572}
@@ -5338,7 +5339,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 25, y: 15}
-  health: {fileID: 3268104783079393903}
+  steeringComponent: {fileID: 0}
+  idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+--- !u!111 &8239193323537161144
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8175268080921009099}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!114 &3268104783079393903
 MonoBehaviour:
   m_ObjectHideFlags: 0

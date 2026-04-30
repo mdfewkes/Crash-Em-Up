@@ -15,11 +15,9 @@ public class EnemyBase : CharacterBase {
 	private ActionPhase actionPhase;
 	private EnemyAction currentAction = null;
 	private float actionStartTime;
-	private float controlMix = 1.0f;
-	private Coroutine controlMixCoroutine = null;
 
 
-	new void Start() {
+	protected override void Start() {
 		base.Start();
 
 		steeringComponent = GetComponent<SteeringComponent>();
@@ -76,9 +74,6 @@ public class EnemyBase : CharacterBase {
 
 		// Transition to Warmup phase
 		actionPhase = ActionPhase.WarmUp;
-		if (controlMixCoroutine != null)
-			StopCoroutine(controlMixCoroutine);
-		controlMixCoroutine = StartCoroutine(LerpControlMix(0.0f, currentAction.warmupTime));
 	}
 
 	private void ActionStateWarmup() {
@@ -95,8 +90,6 @@ public class EnemyBase : CharacterBase {
 
 			actionPhase = ActionPhase.Recover;
 			iFrames = false;
-			if (controlMixCoroutine != null) StopCoroutine(controlMixCoroutine);
-			controlMixCoroutine = StartCoroutine(LerpControlMix(1.0f, currentAction.animationClip.length - currentAction.recoveryTime));
 		}
 	}
 
@@ -124,20 +117,4 @@ public class EnemyBase : CharacterBase {
             OnEnemyDestroyed?.Invoke();
         }
     }
-
-	IEnumerator LerpControlMix(float mixTarget, float fadeTime) {
-		float startTime = Time.time;
-		float currentTime = 0.0f;
-		float startValue = controlMix;
-
-		while (startTime + fadeTime > Time.time) {
-			currentTime = Time.time - startTime;
-
-			controlMix = Mathf.Lerp(startValue, mixTarget, currentTime / fadeTime);
-			yield return null;
-		}
-
-		controlMix = mixTarget;
-	}
-    
 }

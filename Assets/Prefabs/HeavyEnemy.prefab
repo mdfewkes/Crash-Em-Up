@@ -10025,6 +10025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7877656091663393852}
   - component: {fileID: 2087394924563482185}
+  - component: {fileID: 4148544090096126640}
   - component: {fileID: 3268104783079393903}
   - component: {fileID: -3289896274047806608}
   - component: {fileID: 4102223796990751143}
@@ -10060,11 +10061,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 8175268080921009099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe7cd35988add148804fab929cf991d, type: 3}
+  m_Script: {fileID: 11500000, guid: ab31be80668ec452694ad479492d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackMultiplier: {x: 25, y: 15}
-  health: {fileID: 3268104783079393903}
+  knockbackMultiplier: {x: 1, y: 1}
+  steeringComponent: {fileID: 0}
+  idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  fuAttack:
+    name: Front Up Attack
+    animationClip: {fileID: 7400000, guid: 886baa116821b410c9961de367af5130, type: 2}
+    warmupTime: 0.25
+    recoveryTime: 2
+    collisionDamage: 5
+    spinoutDamage: 1
+  ffAttack:
+    name: Front Forward Attack
+    animationClip: {fileID: 7400000, guid: 6a91b853b0ff14ff6b2e619502cbfa9e, type: 2}
+    warmupTime: 0.25
+    recoveryTime: 2
+    collisionDamage: 5
+    spinoutDamage: 1
+  fdAttack:
+    name: Front Down Attack
+    animationClip: {fileID: 7400000, guid: afad4881efbd44625b922132ba4b25e8, type: 2}
+    warmupTime: 0.25
+    recoveryTime: 2
+    collisionDamage: 5
+    spinoutDamage: 1
+  bAttack:
+    name: Breaking Attack
+    animationClip: {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
+    warmupTime: 0.25
+    recoveryTime: 2.5
+    collisionDamage: 2
+    spinoutDamage: 4
+--- !u!111 &4148544090096126640
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8175268080921009099}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 886baa116821b410c9961de367af5130, type: 2}
+  - {fileID: 7400000, guid: 6a91b853b0ff14ff6b2e619502cbfa9e, type: 2}
+  - {fileID: 7400000, guid: afad4881efbd44625b922132ba4b25e8, type: 2}
+  - {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
+  - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!114 &3268104783079393903
 MonoBehaviour:
   m_ObjectHideFlags: 0
