@@ -11,6 +11,8 @@ public class EnemyBase : CharacterBase {
 
 	[SerializeField] private AnimationClip idleAnimation;
 
+	[SerializeField] private GameObject onDeathPrefab;
+
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
 	private EnemyAction currentAction = null;
@@ -113,6 +115,10 @@ public class EnemyBase : CharacterBase {
 
     private void Health_OnDied(Health health)  {
         if (health = healthComponent) {
+			if (onDeathPrefab) {
+				Instantiate<GameObject>(onDeathPrefab, transform.position, Quaternion.identity);
+			}
+
             Debug.Log("enemy destoryed");
             OnEnemyDestroyed?.Invoke();
         }

@@ -10067,6 +10067,7 @@ MonoBehaviour:
   knockbackMultiplier: {x: 1, y: 1}
   steeringComponent: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
   fuAttack:
     name: Front Up Attack
     animationClip: {fileID: 7400000, guid: 886baa116821b410c9961de367af5130, type: 2}

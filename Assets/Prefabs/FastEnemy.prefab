@@ -5341,6 +5341,7 @@ MonoBehaviour:
   knockbackMultiplier: {x: 25, y: 15}
   steeringComponent: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
 --- !u!111 &2664293072824390008
 Animation:
   m_ObjectHideFlags: 0
