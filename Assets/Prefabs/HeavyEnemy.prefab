@@ -118,6 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6129926720586975136}
+  - component: {fileID: 8983393056060642454}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -151,6 +152,44 @@ Transform:
   - {fileID: 2539573345670167758}
   m_Father: {fileID: 7877656091663393852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8983393056060642454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131386902275738837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12121fd65f1d1461f83dae3f54fac01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  pullStrength: -1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4519973467718527163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10027,7 +10066,6 @@ GameObject:
   - component: {fileID: 2087394924563482185}
   - component: {fileID: 4148544090096126640}
   - component: {fileID: 3268104783079393903}
-  - component: {fileID: -3289896274047806608}
   - component: {fileID: 4102223796990751143}
   m_Layer: 0
   m_Name: HeavyEnemy
@@ -10131,44 +10169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invincible: 0
   startingHealth: 15
---- !u!114 &-3289896274047806608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8175268080921009099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12121fd65f1d1461f83dae3f54fac01b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  pullStrength: -1
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &4102223796990751143
 MonoBehaviour:
   m_ObjectHideFlags: 0
