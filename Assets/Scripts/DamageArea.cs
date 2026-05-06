@@ -6,6 +6,8 @@ public class DamageArea : MonoBehaviour {
 
 	[SerializeField] private Collider collisionArea;
 
+	[SerializeField] private GameObject onHitPrefab;
+
 	private Vector2 hitVelocity;
 	private Vector3 lastPosition;
 
@@ -54,5 +56,10 @@ public class DamageArea : MonoBehaviour {
 		impactData.collisionDamage = collisionDamage;
 		impactData.spinoutDamage = spinoutDamage;
 		damageArea?.ReceiveImpact(impactData);
+
+		if (onHitPrefab) {
+			Vector3 hitLocation = transform.position + ((other.transform.position - transform.position) / 2.0f);
+			Instantiate<GameObject>(onHitPrefab, hitLocation, Quaternion.identity);
+		}
 	}
 }

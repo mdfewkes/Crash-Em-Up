@@ -5068,6 +5068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 416306917579077023}
+  onHitPrefab: {fileID: 6509392382980097960, guid: 02fb820df603e3545833c07b8400609d, type: 3}
   collisionDamage: 0
   spinoutDamage: 0
   collisionReceivedMultiplier: 0.5
@@ -5276,6 +5277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 6600272518486318275}
+  onHitPrefab: {fileID: 6509392382980097960, guid: 02fb820df603e3545833c07b8400609d, type: 3}
   collisionDamage: 0
   spinoutDamage: 0
   collisionReceivedMultiplier: 1
