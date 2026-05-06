@@ -13,6 +13,9 @@ public class EnemyBase : CharacterBase {
 
 	[SerializeField] private GameObject onDeathPrefab;
 
+	private static int tokens = 1;
+	private static int maxTokens = 1;
+
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
 	private EnemyAction currentAction = null;
@@ -59,7 +62,7 @@ public class EnemyBase : CharacterBase {
 		}
 	}
 
-	protected void StartActionState(EnemyAction action) {
+	private void StartActionState(EnemyAction action) {
 		if (action == null) return;
 
 		if (currentAction != null) {
@@ -78,6 +81,21 @@ public class EnemyBase : CharacterBase {
 		actionPhase = ActionPhase.WarmUp;
 	}
 
+	protected bool RequestStartActionState(EnemyAction action) {
+		if (tokens > 0) {
+			tokens--;
+			StartActionState(action);
+			return true;
+		}
+
+		return false;
+	}
+
+	private void ReturnToken() {
+		tokens++;
+		if (tokens > maxTokens) tokens = maxTokens;
+	}
+
 	private void ActionStateWarmup() {
 		// Transition to Action phase
 		if (Time.time >= actionStartTime + currentAction.warmupTime) {
@@ -92,6 +110,7 @@ public class EnemyBase : CharacterBase {
 
 			actionPhase = ActionPhase.Recover;
 			iFrames = false;
+			ReturnToken();
 		}
 	}
 
