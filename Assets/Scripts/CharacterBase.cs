@@ -69,7 +69,7 @@ public class CharacterBase : MonoBehaviour {
 			impactVelocity *= knockbackMultiplier;
 
 			if (highestCollisionDamage > 0.0f) {
-				healthComponent.TakeDamage(highestCollisionDamage);
+				healthComponent.TakeDamage(highestCollisionDamage, highestSpinoutDamage);
 			}
 			
 			pendingImpact = false;

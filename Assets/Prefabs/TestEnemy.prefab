@@ -5412,7 +5412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
-  startingHealth: 10
+  startingCrashHealth: 10
+  startingSpinoutHealth: 10
 --- !u!114 &-4552998919120870572
 MonoBehaviour:
   m_ObjectHideFlags: 0

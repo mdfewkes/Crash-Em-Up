@@ -8,21 +8,35 @@ public class Health : MonoBehaviour  {
 	[SerializeField]
 	private bool invincible = false;
 	[SerializeField]
-	private float startingHealth;
-	private float health = 10.0f; 
+	private float startingCrashHealth;
+	[SerializeField]
+	private float startingSpinoutHealth;
+	private float collisionHP = 10.0f; 
+	private float spinoutHP = 10.0f; 
 
     void Start() {
-        health = startingHealth;
+        collisionHP = startingCrashHealth;
+        spinoutHP = startingSpinoutHealth;
     }
 
-    public void TakeDamage(float damage) {
+    void Update() {
+        if (spinoutHP < startingSpinoutHealth) {
+            spinoutHP += Time.deltaTime;
+        }
+    }
+
+    public void TakeDamage(float collisionDamage, float spinoutDamage) {
         if (invincible) return;
 
-        health -= damage;
-        Debug.Log("Damage Done: " + damage);
-        Mathf.Max(0.0f,health);
+        collisionHP -= collisionDamage;
+        spinoutHP -= spinoutDamage;
+        Mathf.Max(0.0f, collisionHP);
 
-        if(health <= 0 && !isDead) {
+        if(spinoutHP <= 0) {
+            collisionHP += spinoutHP;
+        }
+
+        if(collisionHP <= 0 && !isDead) {
             isDead = true;
            Die();
         }
