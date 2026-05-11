@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour {
 	[SerializeField] private Vector2 knockbackMultiplier = new Vector2(1.0f, 1.0f);
+	[SerializeField] float impactVelocityDamppening = 0.9f;
 
 	protected enum CharacterState { Move, Action, Stunned };
 	protected CharacterState state = CharacterState.Move;
@@ -11,7 +12,6 @@ public class CharacterBase : MonoBehaviour {
 	private Queue<ImpactData> impactDataQueue = new Queue<ImpactData>();
 	private bool pendingImpact = false;
 	private Vector2 impactVelocity = Vector2.zero;
-	float impactVelocityDamppening = 0.9f;
 
 	protected Health healthComponent;
 
