@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 25, y: 10}
+  impactVelocityDamppening: 0.9
   speed: {x: 7, y: 4}
   playerActions:
     buttonF: {fileID: 11400000, guid: 7adf978fa65740042b43d1b94fbb2d31, type: 2}
@@ -176,7 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
-  startingHealth: 10
+  startingCrashHealth: 10
+  startingSpinoutHealth: 10
 --- !u!114 &1056793185057900294
 MonoBehaviour:
   m_ObjectHideFlags: 0
