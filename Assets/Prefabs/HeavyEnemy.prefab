@@ -10115,7 +10115,7 @@ MonoBehaviour:
     warmupTime: 0.25
     recoveryTime: 2
     collisionDamage: 5
-    spinoutDamage: 1
+    spinoutDamage: 2
   ffAttack:
     name: Front Forward Attack
     animationClip: {fileID: 7400000, guid: 6a91b853b0ff14ff6b2e619502cbfa9e, type: 2}
@@ -10129,7 +10129,7 @@ MonoBehaviour:
     warmupTime: 0.25
     recoveryTime: 2
     collisionDamage: 5
-    spinoutDamage: 1
+    spinoutDamage: 2
   bAttack:
     name: Breaking Attack
     animationClip: {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}

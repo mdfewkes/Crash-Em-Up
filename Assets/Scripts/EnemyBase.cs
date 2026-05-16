@@ -95,8 +95,8 @@ public class EnemyBase : CharacterBase {
 
 	private void ReturnToken() {
 		if (heldTokens > 0) {
-			heldTokens--;
-			tokens++;
+			tokens += heldTokens;
+			heldTokens = 0;
 		}
 		if (tokens > maxTokens) tokens = maxTokens;
 	}
@@ -126,6 +126,10 @@ public class EnemyBase : CharacterBase {
 			currentAction = null;
 			if (idleAnimation) animationPlayer.Play(idleAnimation.name);
 		}
+	}
+
+	protected override void EnterStunnedState() {
+		ReturnToken();
 	}
 
 	protected override void ExitStunnedState() {
