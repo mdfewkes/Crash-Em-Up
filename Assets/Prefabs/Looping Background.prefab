@@ -998,7 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -22, y: 0, z: 0}
-  minPos: {x: -100, y: -9999, z: -9999}
+  minPos: {x: -200, y: -9999, z: -9999}
   maxPos: {x: 200, y: 9999, z: 9999}
 --- !u!1 &3403864718730719284
 GameObject:

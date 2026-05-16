@@ -15,6 +15,7 @@ public class EnemyBase : CharacterBase {
 
 	private static int tokens = 1;
 	private static int maxTokens = 1;
+	private int heldTokens = 0;
 
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
@@ -84,6 +85,7 @@ public class EnemyBase : CharacterBase {
 	protected bool RequestStartActionState(EnemyAction action) {
 		if (tokens > 0) {
 			tokens--;
+			heldTokens++;
 			StartActionState(action);
 			return true;
 		}
@@ -92,7 +94,10 @@ public class EnemyBase : CharacterBase {
 	}
 
 	private void ReturnToken() {
-		tokens++;
+		if (heldTokens > 0) {
+			heldTokens--;
+			tokens++;
+		}
 		if (tokens > maxTokens) tokens = maxTokens;
 	}
 
@@ -130,6 +135,7 @@ public class EnemyBase : CharacterBase {
 
     private void OnDestroy() {
         healthComponent.OnDied -= Health_OnDied;
+        ReturnToken();
     }
 
     private void Health_OnDied(Health health)  {
@@ -138,7 +144,7 @@ public class EnemyBase : CharacterBase {
 				Instantiate<GameObject>(onDeathPrefab, transform.position, Quaternion.identity);
 			}
 
-            Debug.Log("enemy destoryed");
+            // Debug.Log("enemy destoryed");
             OnEnemyDestroyed?.Invoke();
         }
     }
