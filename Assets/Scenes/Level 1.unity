@@ -377,14 +377,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3268104783079393903, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       propertyPath: invincible
       value: 0
@@ -579,26 +571,6 @@ PrefabInstance:
       propertyPath: radius
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: fdAttack.spinoutDamage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: fuAttack.spinoutDamage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: impactVelocityDamppening
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 7877656091663393852, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -643,6 +615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeavyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8175268080921009099, guid: 920134bc2f50b4d4999456682318862e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -659,14 +635,6 @@ PrefabInstance:
     - target: {fileID: -3289896274047806608, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       propertyPath: radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3268104783079393903, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       propertyPath: invincible
@@ -715,6 +683,10 @@ PrefabInstance:
     - target: {fileID: 8175268080921009099, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       propertyPath: m_Name
       value: HeavyEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175268080921009099, guid: 920134bc2f50b4d4999456682318862e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -893,14 +865,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3805145810081957665, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       propertyPath: radius
       value: 4
@@ -6297,14 +6261,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3100373434628204546, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       propertyPath: radius
       value: 4
@@ -6374,14 +6330,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3100373434628204546, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       propertyPath: radius
       value: 4
@@ -6661,14 +6609,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3268104783079393903, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       propertyPath: invincible
       value: 0
@@ -6676,6 +6616,10 @@ PrefabInstance:
     - target: {fileID: 3805145810081957665, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       propertyPath: radius
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129926720586975136, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7877656091663393852, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7032,14 +6976,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3100373434628204546, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       propertyPath: radius
       value: 4
@@ -7149,17 +7085,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4067734779116972067, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
-      propertyPath: knockbackMultiplier.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067734779116972067, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
-      propertyPath: knockbackMultiplier.y
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6953940792920360833, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_Animation
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305990805259095993, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
