@@ -50,7 +50,7 @@ public class TutorialManger : MonoBehaviour
         SceneManager.LoadScene(0);
         }
         else
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(5);
     }
 
     private void OnDisable()
