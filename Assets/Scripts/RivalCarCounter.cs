@@ -25,14 +25,24 @@ public class RivalCarCounter : MonoBehaviour
 
     }
 
+    private void OnNewWave(int enemiesInWave)
+    {
+        enemyCountTotal = enemiesInWave;
+        enemyCount = enemiesInWave;
+
+        OnRivalCarsCountUpdate?.Invoke(enemyCount, enemyCountTotal);
+    }
+
     private void OnEnable()
     {
         EnemyBase.OnEnemyDestroyed += TestEnemy_OnEnemyDestroyed;
+        EnemySpawner.OnSpawnWave += OnNewWave;
     }
 
     private void OnDisable()
     {
         EnemyBase.OnEnemyDestroyed -= TestEnemy_OnEnemyDestroyed;
+        EnemySpawner.OnSpawnWave -= OnNewWave;
     }
 
     private void TestEnemy_OnEnemyDestroyed()

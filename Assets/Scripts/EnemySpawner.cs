@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-    public static event Action OnSpawnWave;
+    public static event Action<int> OnSpawnWave;
 
     public static event Action OnNoWave;
 
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour {
             steeringComponent.SetTarget(enemyInfo.targetPosition);
         }
 
-        OnSpawnWave?.Invoke();
+        OnSpawnWave?.Invoke(enemyCount);
     }
 
     private void EnemyDestroyed() {
