@@ -10,7 +10,7 @@ public class EnemySpawnerTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        parentEnemySpawner.StartEnemySpawn();
+        // parentEnemySpawner.StartEnemySpawn();
         gameObject.SetActive(false);
     }
 }

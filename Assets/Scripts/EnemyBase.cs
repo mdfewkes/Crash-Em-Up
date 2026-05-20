@@ -30,7 +30,7 @@ public class EnemyBase : CharacterBase {
 		if (steeringComponent == null) {
 			steeringComponent = gameObject.AddComponent<SteeringComponent>();
 		}
-		steeringComponent.SetTarget(transform.position);
+		// steeringComponent.SetTarget(transform.position);
 
 		animationPlayer = GetComponent<Animation>();
 		if (animationPlayer == null) {

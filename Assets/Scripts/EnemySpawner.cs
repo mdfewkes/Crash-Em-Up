@@ -1,58 +1,73 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
-{
-    public GameObject enemyObjectToSpawn;
+public class EnemySpawner : MonoBehaviour {
 
-    public float spawnTimeInterval;
-    private float timePassedSinceLastEnemySpawn = 0;
+    public static event Action OnSpawnWave;
 
-    public int numberOfEnemiesToSpawn;
-    private int numberOfEnemiesSpawned = 0;
+    public static event Action OnNoWave;
 
-    private bool isSpawningEnemies = true;
-
-    [SerializeField] private GameObject triggerObject;
+   [SerializeField] private List<Wave> waves;
+   private int currentWave = 0;
+   private int enemyCount = 0;
     
 
-    private void Update()
-    {
-        SpawnEnemy();
+    void Start() {
+        SpawnWave(0);
     }
 
-    private void SpawnEnemy()
-    {
-        if (isSpawningEnemies) 
-        {
-            if (numberOfEnemiesSpawned < numberOfEnemiesToSpawn)
-            {
-                if (timePassedSinceLastEnemySpawn >= spawnTimeInterval)
-                {
-                    GameObject.Instantiate(enemyObjectToSpawn);
-                    timePassedSinceLastEnemySpawn = 0;
-                    numberOfEnemiesSpawned++;
-                }
-                else
-                {
-                    timePassedSinceLastEnemySpawn += Time.deltaTime;
-                }
-            }
-            else
-            {
-                gameObject.SetActive(false);
-            }
+	void OnEnable() {
+		EnemyBase.OnEnemyDestroyed += EnemyDestroyed;
+	}
+
+	void OnDisable() {
+		EnemyBase.OnEnemyDestroyed -= EnemyDestroyed;
+	}
+
+	public void SpawnNextWave() {
+        SpawnWave(++currentWave);
+    }
+
+    private void SpawnWave(int wave) {
+        if (waves.Count <= wave || wave < 0) {
+            OnNoWave?.Invoke();
+            return;
         }
+
+        enemyCount = waves[wave].enemies.Count;
+
+        for (int i = 0; i < enemyCount; ++i) {
+            EnemySpawnInfo enemyInfo = waves[wave].enemies[i];
+            EnemyBase enemy = Instantiate(enemyInfo.enemyToSpawn);
+            enemy.transform.position = enemyInfo.spawnPosition;
+            SteeringComponent steeringComponent = enemy.GetComponent<SteeringComponent>();
+            steeringComponent.SetTarget(enemyInfo.targetPosition);
+        }
+
+        OnSpawnWave?.Invoke();
     }
 
-    public void SetInstantSpawn()
-    {
-        isSpawningEnemies = true;
-        triggerObject.SetActive(false);
+    private void EnemyDestroyed() {
+        enemyCount--;
+
+        if (enemyCount == 0) SpawnNextWave();
     }
 
-    public void StartEnemySpawn()
-    {
-        isSpawningEnemies = true;
+    void OnDrawGizmosSelected() {
+        if (waves.Count == 0) return;
+        Wave currentWave = waves[waves.Count-1];
+        if (currentWave.enemies.Count == 0) return;
+        EnemySpawnInfo currentEnemy = currentWave.enemies[currentWave.enemies.Count-1];
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(currentEnemy.spawnPosition, 1.0f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(currentEnemy.targetPosition, 1.0f);
+        Gizmos.DrawLine(currentEnemy.spawnPosition, currentEnemy.targetPosition);
+    }
+
+    public void AddEnemy(EnemySpawnInfo enemyInfo) {
+        waves[waves.Count-1].enemies.Add(enemyInfo);
     }
 }

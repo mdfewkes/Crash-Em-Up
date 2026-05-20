@@ -3,12 +3,14 @@ using UnityEngine;
 public class SteeringComponent : MonoBehaviour {
     public Vector2 speed;
 
-    Vector2 target;
-    Transform targetObject;
+    public bool targetSelfOnAwake = false;
+
+    [SerializeField] Vector2 target;
+    [SerializeField] Transform targetObject = null;
     Vector2 steeringVector;
 
 	void Awake() {
-		targetObject = transform;
+		if (targetSelfOnAwake) targetObject = transform;
 	}
 
     public void SetTarget(Vector2 position) {
@@ -17,17 +19,14 @@ public class SteeringComponent : MonoBehaviour {
     }
 
     public void SetTarget(Vector3 position) {
-        SetTarget(new Vector2(position.x, position.z));
+        target = new Vector2(position.x, position.z);
+        targetObject = null;
     }
 
     public void SetTarget(Transform targetTransform) {
-        SetTarget(new Vector2(targetTransform.position.x, targetTransform.position.z));
+        target = new Vector2(targetTransform.position.x, targetTransform.position.z);
         targetObject = targetTransform;
     }
-
-    public void ResetTarget() {
-		targetObject = transform;
-	}
 
 	public Vector2 UpdateSteeringVector() {
         steeringVector = Vector2.zero;

@@ -42,7 +42,7 @@ public class RivalCarCounter : MonoBehaviour
 
         if (enemyCount == 0)
         {
-            OnAllRivalCarDestroyed?.Invoke();
+            // OnAllRivalCarDestroyed?.Invoke();
             return;
         }
     }
