@@ -11,8 +11,8 @@ public class DamageArea : MonoBehaviour {
 	private Vector2 hitVelocity;
 	private Vector3 lastPosition;
 
-	public float collisionDamage;
-	public float spinoutDamage;
+	public float collisionDamage = 0.2f;
+	public float spinoutDamage = 0.2f;
 
 	public float collisionReceivedMultiplier;
 	public float spinoutReceivedMultiplier;

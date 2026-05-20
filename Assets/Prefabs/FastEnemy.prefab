@@ -5069,8 +5069,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 416306917579077023}
   onHitPrefab: {fileID: 6509392382980097960, guid: 02fb820df603e3545833c07b8400609d, type: 3}
-  collisionDamage: 0
-  spinoutDamage: 0
+  collisionDamage: 0.2
+  spinoutDamage: 0.2
   collisionReceivedMultiplier: 0.5
   spinoutReceivedMultiplier: 1
 --- !u!65 &416306917579077023
@@ -5278,8 +5278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionArea: {fileID: 6600272518486318275}
   onHitPrefab: {fileID: 6509392382980097960, guid: 02fb820df603e3545833c07b8400609d, type: 3}
-  collisionDamage: 0
-  spinoutDamage: 0
+  collisionDamage: 0.2
+  spinoutDamage: 0.2
   collisionReceivedMultiplier: 1
   spinoutReceivedMultiplier: 0.5
 --- !u!65 &6600272518486318275
@@ -5428,6 +5428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 3}
+  targetSelfOnAwake: 0
+  target: {x: 0, y: 0}
+  targetObject: {fileID: 0}
 --- !u!1 &8293103160379483569
 GameObject:
   m_ObjectHideFlags: 0

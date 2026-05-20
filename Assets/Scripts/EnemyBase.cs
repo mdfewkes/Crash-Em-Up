@@ -74,7 +74,6 @@ public class EnemyBase : CharacterBase {
 		}
 
 		currentAction = action;
-		SetCollisionDamage(currentAction.collisionDamage, currentAction.spinoutDamage); //Sets damage in Damage area.
 		actionStartTime = Time.time;
 		state = CharacterState.Action;
 
@@ -105,6 +104,7 @@ public class EnemyBase : CharacterBase {
 		// Transition to Action phase
 		if (Time.time >= actionStartTime + currentAction.warmupTime) {
 			actionPhase = ActionPhase.Action;
+			SetCollisionDamage(currentAction.collisionDamage, currentAction.spinoutDamage); //Sets damage in Damage area.
 			iFrames = true;
 		}
 	}
@@ -114,6 +114,7 @@ public class EnemyBase : CharacterBase {
 		if (Time.time >= actionStartTime + currentAction.recoveryTime) {
 
 			actionPhase = ActionPhase.Recover;
+			SetCollisionDamage(0.2f, 0.2f); //Sets damage in Damage area.
 			iFrames = false;
 			ReturnToken();
 		}

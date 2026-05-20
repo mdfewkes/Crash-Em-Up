@@ -93,6 +93,7 @@ public class PlayerController : CharacterBase {
 		if (Time.time >= actionStartTime + currentAction.warmupTime) {
 			actionPhase = ActionPhase.Action;
 			iFrames = true;
+			SetCollisionDamage(currentAction.collisionDamage, currentAction.spinoutDamage); //Sets damage in Damage area.
 		}
 	}
 
@@ -111,6 +112,7 @@ public class PlayerController : CharacterBase {
 
 			actionPhase = ActionPhase.Recover;
 			iFrames = false;
+			SetCollisionDamage(0.2f, 0.2f); //Sets damage in Damage area.
 			quickAction = null;
 			availableActionSet = currentAction.chains;
 			if (controlMixCoroutine != null) StopCoroutine(controlMixCoroutine);
@@ -143,7 +145,6 @@ public class PlayerController : CharacterBase {
 
 		currentAction = action;
 		quickAction = null;
-		SetCollisionDamage(currentAction.collisionDamage, currentAction.spinoutDamage); //Sets damage in Damage area.
 		availableActionSet = currentAction.quickLinks;
 		actionStartTime = Time.time;
 		state = CharacterState.Action;
