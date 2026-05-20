@@ -100,6 +100,12 @@ public class EnemyBase : CharacterBase {
 		if (tokens > maxTokens) tokens = maxTokens;
 	}
 
+	public static void SetTotalTokens(int amount) {
+		int differance = amount - maxTokens;
+		tokens += differance;
+		maxTokens = amount;
+	}
+
 	private void ActionStateWarmup() {
 		// Transition to Action phase
 		if (Time.time >= actionStartTime + currentAction.warmupTime) {

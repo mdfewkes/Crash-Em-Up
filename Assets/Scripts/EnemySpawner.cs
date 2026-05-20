@@ -45,6 +45,8 @@ public class EnemySpawner : MonoBehaviour {
             steeringComponent.SetTarget(enemyInfo.targetPosition);
         }
 
+        EnemyBase.SetTotalTokens(waves[wave].attackTokens);
+
         OnSpawnWave?.Invoke(enemyCount);
     }
 

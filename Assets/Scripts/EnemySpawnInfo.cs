@@ -11,6 +11,6 @@ public struct EnemySpawnInfo {
 
 [Serializable]
 public struct Wave {
-	public float attackTokens;
+	public int attackTokens;
 	public List<EnemySpawnInfo> enemies;
 }
