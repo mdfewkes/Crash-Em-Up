@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         InputSystem.actions.FindAction("ESC").performed += GameManager_performed;
         RivalCarCounter.OnAllRivalCarDestroyed += RivalCarCounter_OnAllRivalCarDestroyed;
         GameTimer.OnTimeRanOut += GameTimer_OnTimeRanOut;
+        EnemySpawner.OnNoWave += RivalCarCounter_OnAllRivalCarDestroyed;
     }
 
     private void GameTimer_OnTimeRanOut()
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         RivalCarCounter.OnAllRivalCarDestroyed -= RivalCarCounter_OnAllRivalCarDestroyed;
         GameTimer.OnTimeRanOut -= GameTimer_OnTimeRanOut;
         GameUI.OnRestartButtonClick -= GameUI_OnRestartButtonClick;
+        EnemySpawner.OnNoWave -= RivalCarCounter_OnAllRivalCarDestroyed;
     }
     private void Start()
     {
