@@ -9,9 +9,16 @@ public class SteeringComponent : MonoBehaviour {
     [SerializeField] Transform targetObject = null;
     Vector2 steeringVector;
 
-	void Awake() {
-		if (targetSelfOnAwake) targetObject = transform;
-	}
+    void Awake()
+    {
+        if (targetSelfOnAwake)
+
+        {
+            GameObject anchor = Instantiate(new GameObject(), transform.position, transform.rotation);
+            targetObject = anchor.transform;
+
+        }
+    }
 
     public void SetTarget(Vector2 position) {
         target = position;
