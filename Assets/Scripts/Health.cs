@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour  {
     public event System.Action<Health> OnDied;
+    public event Action OnDamage;
 
     private bool isDead = false;
 
@@ -31,6 +33,7 @@ public class Health : MonoBehaviour  {
         collisionHP -= collisionDamage;
         spinoutHP -= spinoutDamage;
         Mathf.Max(0.0f, collisionHP);
+        OnDamage?.Invoke();
 
         if(spinoutHP <= 0) {
             collisionHP += spinoutHP;
@@ -41,6 +44,9 @@ public class Health : MonoBehaviour  {
            Die();
         }
     }
+
+    public float GetCurrentHealth() => collisionHP;
+    public float GetStartingHealth() => startingCrashHealth;
 
     private void Die() {
         OnDied?.Invoke(this);
