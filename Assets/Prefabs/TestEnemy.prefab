@@ -5378,7 +5378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe7cd35988add148804fab929cf991d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackMultiplier: {x: 4, y: 4}
+  knockbackMultiplier: {x: 3, y: 3}
   impactVelocityDamppening: 0.9
   steeringComponent: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}

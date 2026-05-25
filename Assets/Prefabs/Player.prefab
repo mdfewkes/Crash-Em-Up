@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab23e24fe70612f4da6b191d7dab476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackMultiplier: {x: 3.5, y: 3}
+  knockbackMultiplier: {x: 2, y: 2}
   impactVelocityDamppening: 0.9
   speed: {x: 7, y: 4}
   playerActions:
