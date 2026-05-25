@@ -36,6 +36,9 @@ Transform:
   - {fileID: 236445981867345001}
   - {fileID: 971784145858438771}
   - {fileID: 4988857454446677043}
+  - {fileID: 3495647815103964468}
+  - {fileID: 7477278514492607165}
+  - {fileID: 1481689672849786906}
   m_Father: {fileID: 3548983889834253467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1906063230253575539
@@ -104,11 +107,11 @@ Transform:
   m_GameObject: {fileID: 2189136586527671559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -2.173, y: 0.5, z: 0}
+  m_LocalPosition: {x: -2.1730003, y: 0.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3548983889834253467}
+  m_Father: {fileID: 7969932982141465392}
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!33 &3199402264424957150
 MeshFilter:
@@ -222,9 +225,6 @@ Transform:
   m_Children:
   - {fileID: 2700385264518414374}
   - {fileID: 7969932982141465392}
-  - {fileID: 3495647815103964468}
-  - {fileID: 7477278514492607165}
-  - {fileID: 1481689672849786906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4067734779116972067
@@ -487,11 +487,11 @@ Transform:
   m_GameObject: {fileID: 5281113406119823672}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.138, y: 0.197, z: 0.268}
+  m_LocalPosition: {x: -1.1380005, y: 0.197, z: 0.26800013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3548983889834253467}
+  m_Father: {fileID: 7969932982141465392}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!198 &6642935317747661390
 ParticleSystem:
@@ -5407,11 +5407,11 @@ Transform:
   m_GameObject: {fileID: 6577997182234443832}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.161, y: 0.375, z: 0}
+  m_LocalPosition: {x: 2.1610003, y: 0.375, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3548983889834253467}
+  m_Father: {fileID: 7969932982141465392}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6398968432739759043
 MeshFilter:
@@ -5630,6 +5630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1c74fb534f364b9c05c8431ffacf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  motionTarget: {fileID: 345318155175477215}
 --- !u!1 &7957449282352870287
 GameObject:
   m_ObjectHideFlags: 0
