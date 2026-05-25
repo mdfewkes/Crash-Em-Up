@@ -25,7 +25,7 @@ public class TestEnemy : EnemyBase {
 		float distance = Vector3.Distance(transform.position, player.transform.position);
 		float upProduct = Vector2.Dot(Vector2.up, direction);
 
-		if (distance < 2.0) {
+		if (distance < 3.0f) {
 			if (upProduct > 0.7f) RequestStartActionState(uAttack);
 			else if (upProduct < -0.7f) RequestStartActionState(dAttack);
 		}

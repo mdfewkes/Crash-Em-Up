@@ -25,5 +25,5 @@ MonoBehaviour:
     buttonB: {fileID: 0}
     buttonL: {fileID: 0}
     buttonR: {fileID: 0}
-  collisionDamage: 5
+  collisionDamage: 3
   spinoutDamage: 1
