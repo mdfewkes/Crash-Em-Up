@@ -525,7 +525,7 @@ MonoBehaviour:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 12, y: 0, z: 0}
       targetPosition: {x: 0, y: 0, z: 0}
-  - attackTokens: 1
+  - attackTokens: 2
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       spawnPosition: {x: 31, y: 0, z: 2}
@@ -619,15 +619,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712007279}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.5, y: 1, z: -2.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
+  m_LocalPosition: {x: -14.444, y: 0.605, z: -2.587}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 16012440}
   - {fileID: 1542116558}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
 --- !u!153 &712007283
 ConfigurableJoint:
   m_ObjectHideFlags: 0

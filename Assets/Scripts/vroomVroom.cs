@@ -4,7 +4,7 @@ public class vroomVroom : MonoBehaviour
 {
     private AudioSource sfx;
     // start low for a nice revving sound to begin with
-    private float currentPitch = 0f; 
+    private float currentPitch = 2.0f; 
     private float idlePitch = 2.0f;
     private float accelPitch = 3.0f;
     private float brakePitch = 0.5f;
