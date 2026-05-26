@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mountains 2
+  m_Name: mountains 4
   m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -31,7 +31,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2994
+  m_CustomRenderQueue: 2992
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -122,7 +122,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueOffset: -6
+    - _QueueOffset: -8
     - _ReceiveShadows: 1
     - _SampleGI: 0
     - _Smoothness: 0
@@ -134,8 +134,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.35639408, g: 0.36352196, b: 0.42767292, a: 1}
-    - _Color: {r: 0.35639405, g: 0.36352193, b: 0.4276729, a: 1}
+    - _BaseColor: {r: 0.67058825, g: 0.43137258, b: 0.54509807, a: 1}
+    - _Color: {r: 0.67058825, g: 0.43137255, b: 0.545098, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
