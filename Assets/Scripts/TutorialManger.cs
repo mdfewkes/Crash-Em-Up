@@ -23,7 +23,7 @@ public class TutorialManger : MonoBehaviour
                 break;
             case 1:
                 GameObject.FindFirstObjectByType<GameTimer>().gameObject.SetActive(false);
-                PlayerBound.SetBoundXForward(true);
+                PlayerBound.SetBoundXForward(false);
                 foreach (var tutorial in tutorialCars)
                     tutorial.gameObject.SetActive(true);
                 break;
@@ -50,7 +50,7 @@ public class TutorialManger : MonoBehaviour
         SceneManager.LoadScene(0);
         }
         else
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(4);
     }
 
     private void OnDisable()
