@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (!TutorialManger.inTutorial)
         {
             OnGameWon?.Invoke();
-            Time.timeScale = 0;
+            Time.timeScale = 0.1f;
         }
         else
         {
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         RivalCarCounter.OnAllRivalCarDestroyed -= RivalCarCounter_OnAllRivalCarDestroyed;
         GameTimer.OnTimeRanOut -= GameTimer_OnTimeRanOut;
         GameUI.OnRestartButtonClick -= GameUI_OnRestartButtonClick;
+        GameUI.OnContinueButtonClick -= GameUI_OnContinueButtonClick;
         EnemySpawner.OnNoWave -= RivalCarCounter_OnAllRivalCarDestroyed;
     }
     private void Start()
@@ -59,11 +60,20 @@ public class GameManager : MonoBehaviour
 
 
         GameUI.OnRestartButtonClick += GameUI_OnRestartButtonClick;
+        GameUI.OnContinueButtonClick += GameUI_OnContinueButtonClick;
     }
 
     private void GameUI_OnRestartButtonClick()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void GameUI_OnContinueButtonClick()
+    {
+        Time.timeScale = 1;
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
