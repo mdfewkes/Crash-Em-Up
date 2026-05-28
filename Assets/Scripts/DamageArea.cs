@@ -8,14 +8,16 @@ public class DamageArea : MonoBehaviour {
 
 	[SerializeField] private GameObject onHitPrefab;
 
+	[SerializeField] private  float collisionDamage;
+	[SerializeField] private  float spinoutDamage;
+
+	[SerializeField] private  float collisionReceivedMultiplier;
+	[SerializeField] private  float spinoutReceivedMultiplier;
+
 	private Vector2 hitVelocity;
 	private Vector3 lastPosition;
 
-	public float collisionDamage = 0.2f;
-	public float spinoutDamage = 0.2f;
-
-	public float collisionReceivedMultiplier;
-	public float spinoutReceivedMultiplier;
+	private bool inAttackState = false;
 
 	void Start() {
 		if (collisionArea == null) {
@@ -39,6 +41,14 @@ public class DamageArea : MonoBehaviour {
 		Debug.DrawLine(newPosition, newPosition + new Vector3(hitVelocity.x*10, 0, hitVelocity.y*10), Color.cyan);
 	}
 
+	public void SetAttackDamages(float collision, float spinout, bool attacking = true) {
+		collisionDamage = collision;
+		spinoutDamage = spinout;
+		inAttackState = attacking;
+	}
+
+	public void ExitAttackState() {inAttackState = false;}
+
 	public void ReceiveImpact(ImpactData impactData) {
 		impactData.collisionDamage = impactData.collisionDamage * collisionReceivedMultiplier;
 		impactData.spinoutDamage = impactData.spinoutDamage * spinoutReceivedMultiplier;
@@ -53,8 +63,15 @@ public class DamageArea : MonoBehaviour {
 		impactData.hitMagnitude = hitVelocity.magnitude;
 		impactData.hitVelocity = hitVelocity.normalized;
 		impactData.hitDirection = (other.transform.position - transform.position).normalized;
-		impactData.collisionDamage = collisionDamage;
-		impactData.spinoutDamage = spinoutDamage;
+		if (inAttackState) {
+			impactData.collisionDamage = collisionDamage;
+			impactData.spinoutDamage = spinoutDamage;
+			impactData.isAttackDamage = true;
+		} else {
+			impactData.collisionDamage = 0.2f;
+			impactData.spinoutDamage = 0.2f;
+			impactData.isAttackDamage = false;
+		}
 		damageArea?.ReceiveImpact(impactData);
 
 		if (onHitPrefab) {

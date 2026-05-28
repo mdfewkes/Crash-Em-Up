@@ -8,4 +8,5 @@ public struct ImpactData {
 	public float hitMagnitude;
 	public float collisionDamage;
 	public float spinoutDamage;
+	public bool isAttackDamage;
 }
