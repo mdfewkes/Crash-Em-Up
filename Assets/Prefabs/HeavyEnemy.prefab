@@ -10134,7 +10134,7 @@ MonoBehaviour:
     name: Breaking Attack
     animationClip: {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
     warmupTime: 0.25
-    recoveryTime: 2.5
+    recoveryTime: 1.5
     collisionDamage: 2
     spinoutDamage: 4
 --- !u!111 &4148544090096126640

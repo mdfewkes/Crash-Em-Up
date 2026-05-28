@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: targetSelfOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6129926720586975136, guid: 920134bc2f50b4d4999456682318862e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7877656091663393852, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
