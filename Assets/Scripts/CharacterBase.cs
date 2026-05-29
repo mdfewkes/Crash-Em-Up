@@ -120,10 +120,14 @@ public class CharacterBase : MonoBehaviour {
 	}
 
 	protected virtual void SetCollisionDamage(float collision, float spinout) {
-		foreach (DamageArea damageArea in damageAreas)
-		{
-			damageArea.collisionDamage = collision;
-			damageArea.spinoutDamage = spinout;
+		foreach (DamageArea damageArea in damageAreas) {
+			damageArea.SetAttackDamages(collision, spinout);
+		}
+	}
+
+	protected virtual void ResetCollisionDamage() {
+		foreach (DamageArea damageArea in damageAreas) {
+			damageArea.ExitAttackState();
 		}
 	}
 }

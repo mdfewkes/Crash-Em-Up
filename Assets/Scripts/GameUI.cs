@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public static event System.Action OnRestartButtonClick;
+    public static event System.Action OnContinueButtonClick;
 
     [SerializeField] private TextMeshProUGUI rivalCarsText;
     [SerializeField] private TextMeshProUGUI timerText;
@@ -16,6 +17,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endResultText;
     [SerializeField] private TextMeshProUGUI goText;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button continueButton;
     [SerializeField] private Button escButton;
 
     private void Awake()
@@ -23,6 +25,11 @@ public class GameUI : MonoBehaviour
         restartButton.onClick.AddListener(() =>
         {
             OnRestartButtonClick?.Invoke();
+        });
+
+        continueButton.onClick.AddListener(() =>
+        {
+            OnContinueButtonClick?.Invoke();
         });
 
         escButton.onClick.AddListener(() =>
@@ -71,7 +78,7 @@ public class GameUI : MonoBehaviour
 
     private void GameManager_OnGameLost()
     {
-        endResultText.text = "You Lost!\nTime Ran out";
+        endResultText.text = $"You Lost!\nTime Ran out\nScore: {PlayerCardUI.score}";
         endResultText.color = Color.red;
         endResultText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
@@ -85,16 +92,17 @@ public class GameUI : MonoBehaviour
 
     private void GameManager_OnGameWon()
     {
-        endResultText.text = "You Won!\nAll Rival Cars Destroyed";
+        endResultText.text = $"You Won!\nAll Rival Cars Destroyed\nScore: {PlayerCardUI.score}";
         endResultText.color = Color.green;
         endResultText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
     }
 
     private  void GameManager_OnGameStart()
     {
         endResultText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
         StartCoroutine(HideUI());
         
 

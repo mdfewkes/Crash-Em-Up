@@ -112,7 +112,7 @@ public class PlayerController : CharacterBase {
 
 			actionPhase = ActionPhase.Recover;
 			iFrames = false;
-			SetCollisionDamage(0.2f, 0.2f); //Sets damage in Damage area.
+			ResetCollisionDamage(); //Sets damage in Damage area.
 			quickAction = null;
 			availableActionSet = currentAction.chains;
 			if (controlMixCoroutine != null) StopCoroutine(controlMixCoroutine);

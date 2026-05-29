@@ -120,7 +120,7 @@ public class EnemyBase : CharacterBase {
 		if (Time.time >= actionStartTime + currentAction.recoveryTime) {
 
 			actionPhase = ActionPhase.Recover;
-			SetCollisionDamage(0.2f, 0.2f); //Sets damage in Damage area.
+			ResetCollisionDamage(); //Sets damage in Damage area.
 			iFrames = false;
 			ReturnToken();
 		}
