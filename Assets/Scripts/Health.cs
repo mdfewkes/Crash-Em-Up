@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Health : MonoBehaviour  {
     public event System.Action<Health> OnDied;
+    public static event System.Action<int> OnScoreUpdate;
     public event Action OnDamage;
 
     private bool isDead = false;
@@ -15,7 +17,7 @@ public class Health : MonoBehaviour  {
 	[SerializeField]
 	private float startingSpinoutHealth;
 	private float collisionHP = 10.0f; 
-	private float spinoutHP = 10.0f; 
+	private float spinoutHP = 10.0f;
 
     void Start() {
         collisionHP = startingCrashHealth;
@@ -49,12 +51,14 @@ public class Health : MonoBehaviour  {
             collisionHP += spinoutHP;
         }
 
-        
-
-        
         if(collisionHP <= 0 && !isDead) {
             isDead = true;
-           Die();
+            if (gameObject.CompareTag("Enemy"))
+            {
+                int scoreAmt = UnityEngine.Random.Range(100, 200 + 1);
+                OnScoreUpdate?.Invoke(scoreAmt);
+            }
+            Die();
         }
     }
 

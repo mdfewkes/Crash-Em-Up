@@ -1090,7 +1090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922477677164657330, guid: 664ee8cbd90b84e46ad9b8df583c3f22, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 158
+      value: 212
       objectReference: {fileID: 0}
     - target: {fileID: 3922477677164657330, guid: 664ee8cbd90b84e46ad9b8df583c3f22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1144,6 +1144,10 @@ PrefabInstance:
     - target: {fileID: 2004386865082537648, guid: f1cbdf99b2c707445b536ea3ba9c965b, type: 3}
       propertyPath: m_Name
       value: PlayerCardUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270660821800444813, guid: f1cbdf99b2c707445b536ea3ba9c965b, type: 3}
+      propertyPath: m_text
+      value: 00000
       objectReference: {fileID: 0}
     - target: {fileID: 5160155216147828387, guid: f1cbdf99b2c707445b536ea3ba9c965b, type: 3}
       propertyPath: m_Pivot.x
