@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 2, y: 2}
   impactVelocityDamppening: 0.9
+  modelObjectReference: {fileID: 7969932982141465392}
   speed: {x: 7, y: 4}
   playerActions:
     buttonF: {fileID: 11400000, guid: 7adf978fa65740042b43d1b94fbb2d31, type: 2}

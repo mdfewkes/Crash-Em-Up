@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : CharacterBase {
+	[SerializeField] private Transform modelObjectReference = null;
 	public SteeringComponent steeringComponent;
 	private Animation animationPlayer;
 
@@ -136,10 +137,11 @@ public class EnemyBase : CharacterBase {
 	}
 
 	protected override void EnterStunnedState() {
+		if (modelObjectReference) {
+			Vector3 newPosition = new Vector3(modelObjectReference.position.x, 0f, modelObjectReference.position.z);
+			transform.position = newPosition;
+		}
 		ReturnToken();
-	}
-
-	protected override void ExitStunnedState() {
 		currentAction = null;
 		if (idleAnimation) animationPlayer.Play(idleAnimation.name);
 	}

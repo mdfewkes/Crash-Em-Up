@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : CharacterBase {
+	[SerializeField] private Transform modelObjectReference = null;
 	[SerializeField] private Vector2 speed;
 	[SerializeField] private ActionSet playerActions;
 	[SerializeField] private AnimationClip idleAnimation;
@@ -156,10 +157,13 @@ public class PlayerController : CharacterBase {
 		controlMixCoroutine = StartCoroutine(LerpControlMix(0.0f, currentAction.warmupTime));
 	}
 
-	protected override void ExitStunnedState() {
+	protected override void EnterStunnedState() {
+		if (modelObjectReference) {
+			transform.position = modelObjectReference.position;
+		}
 		currentAction = null;
 		availableActionSet = playerActions;
-		animationPlayer.Play(idleAnimation.name);
+		if (idleAnimation) animationPlayer.Play(idleAnimation.name);
 	}
 
 	private PlayerAction CheckInputForAction() {

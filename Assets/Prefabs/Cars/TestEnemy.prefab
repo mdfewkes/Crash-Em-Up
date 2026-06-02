@@ -5381,6 +5381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 3, y: 3}
   impactVelocityDamppening: 0.9
+  modelObjectReference: {fileID: 6129926720586975136}
   steeringComponent: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
