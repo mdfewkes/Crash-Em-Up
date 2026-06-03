@@ -16,12 +16,14 @@ public class DamageSmoke : MonoBehaviour
         if(health is null)
         health = GetComponentInParent<Health>();
 
+        if(health  != null)
         health.OnDamage += Health_OnDamage;
     }
 
     private void OnDisable()
     {
-        health.OnDamage -= Health_OnDamage;
+        if (health != null)
+            health.OnDamage -= Health_OnDamage;
     }
 
     private void Health_OnDamage()
