@@ -8,9 +8,9 @@ public class PlayerCardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     public static int score;
     public static int hitCount;
-    private TimeSpan hitTimer = new TimeSpan(0, 0, 10);
+    public int hitTimerDuration = 4;
+    private TimeSpan hitTimer;
     private bool hitTimerActive = false;
-    Coroutine hitTimerCoroutine = null;
 
     public void Start()
     {
@@ -18,6 +18,20 @@ public class PlayerCardUI : MonoBehaviour
         hitCount = 0;
         hitCounterText.text = $"x{hitCount}";
         scoreText.text = $"00000{score}";
+    }
+
+    private void FixedUpdate()
+    {
+        if (hitTimerActive)
+        {
+            hitTimer = hitTimer.Subtract(TimeSpan.FromSeconds(1 * Time.deltaTime));
+            if (hitTimer.TotalSeconds <= 0)
+            {
+                hitCount = 0;
+                hitCounterText.text = $"x{hitCount}";
+                hitTimerActive = false;
+            }
+        }
     }
 
     private void OnEnable()
@@ -39,6 +53,7 @@ public class PlayerCardUI : MonoBehaviour
         hitCount++;
         hitCounterText.text = $"x{hitCount}";
         hitTimerActive = true;
+        hitTimer = new TimeSpan(0, 0, hitTimerDuration);
     }
 
     public void UpdateScoreCounter(int scoreAmt)
