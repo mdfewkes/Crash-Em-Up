@@ -818,11 +818,11 @@ Transform:
   m_GameObject: {fileID: 2152545598860044053}
   serializedVersion: 2
   m_LocalRotation: {x: 0.025307385, y: -0, z: -0, w: 0.99967974}
-  m_LocalPosition: {x: -0.936, y: 0.944, z: -0.504}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: -0.93600005, y: 0.944, z: -0.50400007}
+  m_LocalScale: {x: 0.6, y: 0.6000001, z: 0.6000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5903405445209762167}
+  m_Father: {fileID: 2722317938503321591}
   m_LocalEulerAnglesHint: {x: 2.9, y: 0, z: 0}
 --- !u!33 &6904875012597892445
 MeshFilter:
@@ -8111,6 +8111,7 @@ Transform:
   - {fileID: 7262332657618967430}
   - {fileID: 4316787884849551605}
   - {fileID: 2273279097975490643}
+  - {fileID: 8659106450023136569}
   m_Father: {fileID: 5903405445209762167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1974662969422602074
@@ -8271,7 +8272,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2722317938503321591}
-  - {fileID: 8659106450023136569}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1764655330176692555
@@ -8294,28 +8294,28 @@ MonoBehaviour:
   onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
   fuAttack:
     name: Front Up Attack
-    animationClip: {fileID: 7400000, guid: 886baa116821b410c9961de367af5130, type: 2}
+    animationClip: {fileID: 7400000, guid: c6c18f5b6c32d4f0baed3b5bcc8d63fd, type: 2}
     warmupTime: 1
     recoveryTime: 2
     collisionDamage: 1.5
     spinoutDamage: 2
   ffAttack:
     name: Front Forward Attack
-    animationClip: {fileID: 7400000, guid: 6a91b853b0ff14ff6b2e619502cbfa9e, type: 2}
+    animationClip: {fileID: 7400000, guid: 34a732eadd2034d63b795ff9f2522391, type: 2}
     warmupTime: 1
     recoveryTime: 2
     collisionDamage: 1.5
     spinoutDamage: 1
   fdAttack:
     name: Front Down Attack
-    animationClip: {fileID: 7400000, guid: afad4881efbd44625b922132ba4b25e8, type: 2}
+    animationClip: {fileID: 7400000, guid: 8ee2d377a99454cfbba75942122ce1f4, type: 2}
     warmupTime: 1
     recoveryTime: 2
     collisionDamage: 1.5
     spinoutDamage: 2
   bAttack:
     name: Breaking Attack
-    animationClip: {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
+    animationClip: {fileID: 7400000, guid: 269ca00e2e15540d88afcd91a08674bb, type: 2}
     warmupTime: 1
     recoveryTime: 1.5
     collisionDamage: 1.5
@@ -8331,10 +8331,10 @@ Animation:
   serializedVersion: 4
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 886baa116821b410c9961de367af5130, type: 2}
-  - {fileID: 7400000, guid: 6a91b853b0ff14ff6b2e619502cbfa9e, type: 2}
-  - {fileID: 7400000, guid: afad4881efbd44625b922132ba4b25e8, type: 2}
-  - {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
+  - {fileID: 7400000, guid: c6c18f5b6c32d4f0baed3b5bcc8d63fd, type: 2}
+  - {fileID: 7400000, guid: 34a732eadd2034d63b795ff9f2522391, type: 2}
+  - {fileID: 7400000, guid: 8ee2d377a99454cfbba75942122ce1f4, type: 2}
+  - {fileID: 7400000, guid: 269ca00e2e15540d88afcd91a08674bb, type: 2}
   - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
