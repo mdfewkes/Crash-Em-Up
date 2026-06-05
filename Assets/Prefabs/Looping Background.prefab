@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -2, y: 0}
+  scrollSpeed: {x: -8, y: 0}
 --- !u!1 &458462388598591347
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 0}
-  scrollSpeed: {x: -2, y: 0}
+  scrollSpeed: {x: -8, y: 0}
 --- !u!1 &1131959204161819075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd18f69fe0e5df1458e95559aa4329c1, type: 2}
+  - {fileID: 2100000, guid: 2b351c335f815494ab35ce30cbf87cc1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
