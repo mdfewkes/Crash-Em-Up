@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdd3a5197d355a49a0445c71ffdbee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 35
+  timer: 120
   allowedTime: 10
 --- !u!1 &4957251019409187308
 GameObject:

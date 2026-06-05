@@ -11,6 +11,7 @@ public class PlayerCardUI : MonoBehaviour
     public int hitTimerDuration = 4;
     private TimeSpan hitTimer;
     private bool hitTimerActive = false;
+    [SerializeField] private Animator hitCounterAnimator;
 
     public void Start()
     {
@@ -54,6 +55,7 @@ public class PlayerCardUI : MonoBehaviour
         hitCounterText.text = $"x{hitCount}";
         hitTimerActive = true;
         hitTimer = new TimeSpan(0, 0, hitTimerDuration);
+        hitCounterAnimator.SetTrigger("OnHit");
     }
 
     public void UpdateScoreCounter(int scoreAmt)

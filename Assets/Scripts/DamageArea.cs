@@ -97,7 +97,7 @@ public class DamageArea : MonoBehaviour {
             }
         }
 
-		if (onHitPrefab) {
+		if (onHitPrefab && collidingCar != null && collidingCar.tag.ToString().Contains("Enemy")) {
 			Vector3 hitLocation = transform.position + ((other.transform.position - transform.position) / 2.0f);
 			Instantiate<GameObject>(onHitPrefab, hitLocation, Quaternion.identity);
 		}
