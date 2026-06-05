@@ -56,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitCounterText: {fileID: 1262947493805394016}
   scoreText: {fileID: 2270660821800444813}
+  hitTimerDuration: 4
 --- !u!1 &2186953569908686087
 GameObject:
   m_ObjectHideFlags: 0

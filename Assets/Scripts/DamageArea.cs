@@ -72,7 +72,7 @@ public class DamageArea : MonoBehaviour {
 			impactData.isAttackDamage = true;
 		} else {
 			impactData.collisionDamage = 0.2f;
-			impactData.spinoutDamage = 0.2f;
+			impactData.spinoutDamage = 1.0f;
 			impactData.isAttackDamage = false;
 		}
 		damageArea?.ReceiveImpact(impactData);

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField] private Health health;
-    [SerializeField] private Image fillImage;
+    [SerializeField] private Image hpFillImage;
+    [SerializeField] private Image spinFillImage;
 
     private void OnEnable()
     {
@@ -15,20 +16,23 @@ public class HealthUI : MonoBehaviour
 
     private void Start()
     {
-       
-
-        fillImage.fillAmount = 1;
+        spinFillImage.fillAmount = 1;
+        hpFillImage.fillAmount = 1;
     }
 
-    private void OnDisable()
+	private void Update()
+	{
+		spinFillImage.fillAmount =  health.GetCurrentSpinout() /   health.GetStartingSpinout();
+	}
+
+	private void OnDisable()
     {
         health.OnDamage -= Health_OnDamage;
     }
 
     private void Health_OnDamage()
     {
-        fillImage.fillAmount =  health.GetCurrentHealth() /   health.GetStartingHealth();
+        hpFillImage.fillAmount =  health.GetCurrentHealth() /   health.GetStartingHealth();
 
-        
     }
 }

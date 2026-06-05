@@ -65,6 +65,9 @@ public class Health : MonoBehaviour  {
     public float GetCurrentHealth() => collisionHP;
     public float GetStartingHealth() => startingCrashHealth;
 
+    public float GetCurrentSpinout() => spinoutHP;
+    public float GetStartingSpinout() => startingSpinoutHealth;
+
     private void Die() {
         OnDied?.Invoke(this);
         Destroy(gameObject);
