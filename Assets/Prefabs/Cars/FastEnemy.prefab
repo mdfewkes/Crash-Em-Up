@@ -5385,6 +5385,27 @@ MonoBehaviour:
   steeringComponent: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
+  fuAttack:
+    name: Doughnut CClockwise
+    animationClip: {fileID: 7400000, guid: 0981b63137769484c8c0fba6d175a103, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
+  fdAttack:
+    name: Doughnut Clockwise
+    animationClip: {fileID: 7400000, guid: d0b8bf00db94e45bab8a4943c91642cb, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
+  bAttack:
+    name: Break Check
+    animationClip: {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
+    warmupTime: 0.25
+    recoveryTime: 1.5
+    collisionDamage: 2
+    spinoutDamage: 2
 --- !u!111 &2664293072824390008
 Animation:
   m_ObjectHideFlags: 0
@@ -5396,6 +5417,9 @@ Animation:
   serializedVersion: 4
   m_Animation: {fileID: 0}
   m_Animations:
+  - {fileID: 7400000, guid: 0981b63137769484c8c0fba6d175a103, type: 2}
+  - {fileID: 7400000, guid: d0b8bf00db94e45bab8a4943c91642cb, type: 2}
+  - {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
   - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
