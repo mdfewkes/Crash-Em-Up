@@ -1774,25 +1774,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'person name - their contributions to the project
-
-
-    person name - their
-    contributions to the project
-
-
-    person name - their contributions to the project
-
-
-    person
-    name - their contributions to the project
-
-
-    person name - their contributions
-    to the project
-
-
-    person name - their contributions to the project'
+  m_text: "Michael Fewkes: Project lead, core gameplay, combat mechanics, enemy vehicle
+    behavior, level wave authoring, impact knockback and spinout, wind effects, gameplay
+    tuning, stun feature, assorted team asset integration and bug fixes\n\nAdeel
+    Bashir: Player bounds, timer, win/lose detection, tutorial, health UI, visual
+    effects (explosion, sparks, damage smoke), main menu visual design, escape key
+    support, scale fixes,\n\nSantiago Morales: Models with materials (garbage bin,
+    electricity pole, mailboxes, bench, brownstone apartment), parking lots, main
+    menu functionality, bounds fix\n\nChrister Kaitila: Models (blue car, truck,
+    sports car, player car, trees, fence), background scrolling and parallax, antenna
+    wobble, building materials, engine pitch, grass, sky improvement, settings menu
+    with save/load\n\nBar\u0131\u015F K\xF6kl\xFC: Enemy spawner with level authoring
+    support\n\nJustin Chin: Boss vehicle design and related particles, tire smoke
+    visual effect\n\nRaymond Zegles: Score counter (with timeout reset), end text,
+    hit counter UI\n\nDalton Charleston: Basic damage system\n\nConnor Fitzpatrick:
+    Crash sound effects"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5019ef223da51ba48822d930fd57ab9c, type: 2}
   m_sharedMaterial: {fileID: -942576802303427886, guid: 5019ef223da51ba48822d930fd57ab9c, type: 2}
