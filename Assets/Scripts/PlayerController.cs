@@ -165,7 +165,8 @@ public class PlayerController : CharacterBase {
 
 	protected override void EnterStunnedState() {
 		if (modelObjectReference) {
-			transform.position = modelObjectReference.position;
+			Vector3 newPosition = new Vector3(modelObjectReference.position.x, 0f, modelObjectReference.position.z);
+			transform.position = newPosition;
 		}
 		currentAction = null;
 		availableActionSet = playerActions;
