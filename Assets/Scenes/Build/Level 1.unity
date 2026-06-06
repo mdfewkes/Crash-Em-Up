@@ -523,8 +523,19 @@ MonoBehaviour:
   - attackTokens: 1
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      spawnPosition: {x: 12, y: 0, z: 0}
-      targetPosition: {x: 0, y: 0, z: 0}
+      spawnPosition: {x: -12, y: 0, z: 0}
+      targetPosition: {x: 7, y: 0, z: 0}
+  - attackTokens: 1
+    enemies:
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
+      spawnPosition: {x: -15, y: 0, z: 2}
+      targetPosition: {x: -5, y: 0, z: 0}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
+      spawnPosition: {x: 17, y: 0, z: 0}
+      targetPosition: {x: 5, y: 0, z: 3}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
+      spawnPosition: {x: 20, y: 0, z: 1}
+      targetPosition: {x: 5, y: 0, z: -3}
   - attackTokens: 2
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
@@ -6574,7 +6585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548983889834253467, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3548983889834253467, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6582,7 +6593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548983889834253467, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 3548983889834253467, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6610,6 +6621,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548983889834253467, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067734779116972067, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+      propertyPath: disableControls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802697996164181074, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6953940792920360833, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}

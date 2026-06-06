@@ -40,7 +40,7 @@ public class PlayerController : CharacterBase {
     private void GameManager_OnGameStart()
     {
 		transform.GetComponent<PlayerBound>().enabled = false;
-		disableControls = true;
+		// disableControls = true;
     }
 
     private void OnDisable()
