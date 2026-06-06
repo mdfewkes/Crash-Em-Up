@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : CharacterBase {
+    public static event Action OnPlayerDestroyed;
+
 	[SerializeField] private Transform modelObjectReference = null;
 	[SerializeField] private Vector2 speed;
 	[SerializeField] private ActionSet playerActions;
 	[SerializeField] private AnimationClip idleAnimation;
+	[SerializeField] private GameObject onDeathPrefab;
 
 	enum ActionPhase { WarmUp, Action, Recover };
 	private ActionPhase actionPhase;
@@ -56,6 +60,8 @@ public class PlayerController : CharacterBase {
 		animationPlayer.Play(idleAnimation.name);
 
 		availableActionSet = playerActions;
+
+        healthComponent.OnDied += Health_OnDied;
 	}
 
 	protected override void MoveState() {
@@ -179,6 +185,21 @@ public class PlayerController : CharacterBase {
 
 		return null;
 	}
+
+    private void OnDestroy() {
+        healthComponent.OnDied -= Health_OnDied;
+    }
+
+    private void Health_OnDied(Health health)  {
+        if (health = healthComponent) {
+			if (onDeathPrefab) {
+				Instantiate<GameObject>(onDeathPrefab, transform.position, Quaternion.identity);
+			}
+
+            // Debug.Log("enemy destoryed");
+            OnPlayerDestroyed?.Invoke();
+        }
+    }
 
 	IEnumerator LerpControlMix(float mixTarget, float fadeTime) {
 		float startTime = Time.time;

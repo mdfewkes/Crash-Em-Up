@@ -250,6 +250,7 @@ MonoBehaviour:
     buttonL: {fileID: 11400000, guid: 9b168b520a4078243b929bc3c45a469a, type: 2}
     buttonR: {fileID: 11400000, guid: dcb46b653998a0b439aeb459e0e52e41, type: 2}
   idleAnimation: {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
+  onDeathPrefab: {fileID: 7391218551422201477, guid: c4240a6e226c2ee4691dc27995039bd5, type: 3}
   disableControls: 0
 --- !u!111 &6953940792920360833
 Animation:

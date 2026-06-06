@@ -17,11 +17,18 @@ public class GameManager : MonoBehaviour
         RivalCarCounter.OnAllRivalCarDestroyed += RivalCarCounter_OnAllRivalCarDestroyed;
         GameTimer.OnTimeRanOut += GameTimer_OnTimeRanOut;
         EnemySpawner.OnNoWave += RivalCarCounter_OnAllRivalCarDestroyed;
+        PlayerController.OnPlayerDestroyed += OnPlayerDeath;
     }
 
     private void GameTimer_OnTimeRanOut()
     {
         OnGameLost?.Invoke();
+    }
+
+    private void OnPlayerDeath()
+    {
+        OnGameLost?.Invoke();
+            Time.timeScale = 0.1f;
     }
 
     private void RivalCarCounter_OnAllRivalCarDestroyed()
@@ -52,6 +59,7 @@ public class GameManager : MonoBehaviour
         GameUI.OnRestartButtonClick -= GameUI_OnRestartButtonClick;
         GameUI.OnContinueButtonClick -= GameUI_OnContinueButtonClick;
         EnemySpawner.OnNoWave -= RivalCarCounter_OnAllRivalCarDestroyed;
+        PlayerController.OnPlayerDestroyed -= OnPlayerDeath;
     }
     private void Start()
     {
