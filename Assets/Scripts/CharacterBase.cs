@@ -91,6 +91,8 @@ public class CharacterBase : MonoBehaviour {
 		}
 	}
 
+	public bool ActiveiFrames() {return iFrames;}
+
 	protected virtual void MoveState() { }
 
 	protected virtual void ActionState() {
