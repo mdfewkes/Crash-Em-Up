@@ -569,21 +569,15 @@ MonoBehaviour:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 25, y: 0, z: 2}
       targetPosition: {x: 3, y: 0, z: 2}
-    - enemyToSpawn: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       spawnPosition: {x: 25, y: 0, z: -2}
       targetPosition: {x: 3, y: 0, z: -2}
-    - enemyToSpawn: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       spawnPosition: {x: 19, y: 0, z: 2}
       targetPosition: {x: -3, y: 0, z: 2}
-    - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 19, y: 0, z: -2}
       targetPosition: {x: -3, y: 0, z: -2}
-    - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
-      spawnPosition: {x: 13, y: 0, z: 2}
-      targetPosition: {x: -9, y: 0, z: 2}
-    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
-      spawnPosition: {x: 13, y: 0, z: -2}
-      targetPosition: {x: -9, y: 0, z: -2}
 --- !u!4 &485404395
 Transform:
   m_ObjectHideFlags: 0
