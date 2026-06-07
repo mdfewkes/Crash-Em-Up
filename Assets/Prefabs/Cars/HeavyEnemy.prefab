@@ -10090,6 +10090,7 @@ GameObject:
   - component: {fileID: 4148544090096126640}
   - component: {fileID: 3268104783079393903}
   - component: {fileID: 4102223796990751143}
+  - component: {fileID: 8606791234830544299}
   m_Layer: 0
   m_Name: HeavyEnemy
   m_TagString: Enemy
@@ -10211,6 +10212,20 @@ MonoBehaviour:
   targetSelfOnAwake: 0
   target: {x: 0, y: 0}
   targetObject: {fileID: 0}
+--- !u!114 &8606791234830544299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8175268080921009099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b902f32f068fb4a72bc1a7b121201763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xRange: 30
+  zRange: 12
 --- !u!1 &8261745447360379245
 GameObject:
   m_ObjectHideFlags: 0
