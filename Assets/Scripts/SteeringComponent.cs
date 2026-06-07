@@ -26,8 +26,15 @@ public class SteeringComponent : MonoBehaviour {
 	void Update() {
 		roamCooldown -= Time.deltaTime;
         if (targetObject == null && roam && roamCooldown <= 0f) {
-            target.x += Random.Range(-5f, 5f);
-            target.y += Random.Range(-5f, 5f);
+            if (Random.Range(0f, 1f) < 0.5f) {
+                target.x += Random.Range(-5f, 5f);
+                target.y += Random.Range(-5f, 5f);
+            } else {
+                target.x = PlayerTag.playerTag.transform.position.x + Random.Range(-4f, 4f) + 2f;
+                target.y = PlayerTag.playerTag.transform.position.z + Random.Range(-5f, 5f) + 1f;
+            }
+
+
             roamCooldown = Random.Range(roamCooldownMin, roamCooldownMax);
         }
 	}
