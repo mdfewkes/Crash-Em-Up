@@ -3,9 +3,14 @@
 
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem.Editor;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] private MenuNavigation menuNavigation;
+    [SerializeField] private GameObject mainUI;
+    [SerializeField] private GameObject settingsUI;
+    [SerializeField] private GameObject creditsUI;
     public TMP_Text soundLabel;
     public TMP_Text eyesLabel;
 
@@ -23,6 +28,25 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel(string level)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(level);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        {
+            if (creditsUI.gameObject.activeInHierarchy)
+            {
+                creditsUI.gameObject.SetActive(false);
+                menuNavigation.SetIndex(3);
+            }
+            else if (settingsUI.gameObject.activeInHierarchy)
+            {
+            settingsUI.gameObject.SetActive(false);
+                menuNavigation.SetIndex(2);
+
+            }
+            mainUI.gameObject.SetActive(true);
+        }
     }
 
     public void ToggleMute()

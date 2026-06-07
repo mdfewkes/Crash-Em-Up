@@ -861,7 +861,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2844641449088832996, guid: 664ee8cbd90b84e46ad9b8df583c3f22, type: 3}
       propertyPath: m_text
-      value: Defeat Rival Cars
+      value: Destroy Rival Cars
       objectReference: {fileID: 0}
     - target: {fileID: 2844641449088832996, guid: 664ee8cbd90b84e46ad9b8df583c3f22, type: 3}
       propertyPath: m_fontSize

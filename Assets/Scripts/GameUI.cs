@@ -78,7 +78,7 @@ public class GameUI : MonoBehaviour
 
     private void GameManager_OnGameLost()
     {
-        endResultText.text = $"You Lost!\nTime Ran out\nScore: {PlayerCardUI.score}";
+        endResultText.text = $"You Lost!\nYour Car Got Destroyed\nScore: {PlayerCardUI.score}";
         endResultText.color = Color.red;
         endResultText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
