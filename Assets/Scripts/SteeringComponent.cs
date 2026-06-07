@@ -5,22 +5,34 @@ public class SteeringComponent : MonoBehaviour {
 
     public bool targetSelfOnAwake = false;
 
+    public bool roam = true;
+    public float roamCooldownMin = 5f;
+    public float roamCooldownMax = 15f;
+    private float roamCooldown;
+
     [SerializeField] Vector2 target;
     [SerializeField] Transform targetObject = null;
     Vector2 steeringVector;
 
-    void Awake()
-    {
-        if (targetSelfOnAwake)
-
-        {
+    void Awake() {
+        if (targetSelfOnAwake) {
             GameObject anchor = Instantiate(new GameObject(), transform.position, transform.rotation);
             targetObject = anchor.transform;
-
         }
+
+        roamCooldown = Random.Range(roamCooldownMin, roamCooldownMax);
     }
 
-    public void SetTarget(Vector2 position) {
+	void Update() {
+		roamCooldown -= Time.deltaTime;
+        if (targetObject == null && roam && roamCooldown <= 0f) {
+            target.x += Random.Range(-5f, 5f);
+            target.y += Random.Range(-5f, 5f);
+            roamCooldown = Random.Range(roamCooldownMin, roamCooldownMax);
+        }
+	}
+
+	public void SetTarget(Vector2 position) {
         target = position;
         targetObject = null;
     }
