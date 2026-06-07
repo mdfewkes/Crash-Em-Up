@@ -42,7 +42,11 @@ public class EnemySpawner : MonoBehaviour {
             EnemyBase enemy = Instantiate(enemyInfo.enemyToSpawn);
             enemy.transform.position = enemyInfo.spawnPosition;
             SteeringComponent steeringComponent = enemy.GetComponent<SteeringComponent>();
-            steeringComponent.SetTarget(enemyInfo.targetPosition);
+            if (enemyInfo.targetObject == null) {
+                steeringComponent.SetTarget(enemyInfo.targetPosition);
+            } else {
+                steeringComponent.SetTarget(enemyInfo.targetObject);
+            }
         }
 
         EnemyBase.SetTotalTokens(waves[wave].attackTokens);
@@ -65,8 +69,13 @@ public class EnemySpawner : MonoBehaviour {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(currentEnemy.spawnPosition, 1.0f);
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(currentEnemy.targetPosition, 1.0f);
-        Gizmos.DrawLine(currentEnemy.spawnPosition, currentEnemy.targetPosition);
+        if (currentEnemy.targetObject == null) {
+            Gizmos.DrawWireSphere(currentEnemy.targetPosition, 1.0f);
+            Gizmos.DrawLine(currentEnemy.spawnPosition, currentEnemy.targetPosition);
+        } else {
+            Gizmos.DrawWireSphere(currentEnemy.targetObject.position, 1.0f);
+            Gizmos.DrawLine(currentEnemy.spawnPosition, currentEnemy.targetObject.position);
+        }
     }
 
     public void AddEnemy(EnemySpawnInfo enemyInfo) {

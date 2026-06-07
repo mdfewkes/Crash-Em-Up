@@ -3,14 +3,6 @@ using UnityEngine;
 public class TestEnemy : EnemyBase {
 	[SerializeField] private EnemyAction uAttack;
 	[SerializeField] private EnemyAction dAttack;
-	
-	private PlayerController player;
-
-	new void Start() {
-		base.Start();
-
-		player = FindAnyObjectByType<PlayerController>();
-	}
 
 	protected override void MoveState() {
 		base.MoveState();
@@ -19,10 +11,10 @@ public class TestEnemy : EnemyBase {
 	}
 
 	private void FindAction() {
-		if (player == null) return;
+		if (PlayerTag.playerTag == null) return;
 
-		Vector2 direction = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.z - transform.position.z).normalized;
-		float distance = Vector3.Distance(transform.position, player.transform.position);
+		Vector2 direction = new Vector2(PlayerTag.playerTag.transform.position.x - transform.position.x, PlayerTag.playerTag.transform.position.z - transform.position.z).normalized;
+		float distance = Vector3.Distance(transform.position, PlayerTag.playerTag.transform.position);
 		float upProduct = Vector2.Dot(Vector2.up, direction);
 
 		if (distance < 3.0f) {

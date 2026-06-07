@@ -514,44 +514,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - attackTokens: 1
+    enemies:
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
+      spawnPosition: {x: 20, y: 0, z: 0}
+      targetPosition: {x: 0, y: 0, z: 0}
+      targetObject: {fileID: 1755396597}
+    - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
+      spawnPosition: {x: 20, y: 0, z: -6.5}
+      targetPosition: {x: 0, y: 0, z: 0}
+      targetObject: {fileID: 1661149742}
   - attackTokens: 2
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       spawnPosition: {x: 20, y: 0, z: -1}
       targetPosition: {x: 4, y: 0, z: -1}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: ae7ee06f0bdd84361b1b1a25ed029833, type: 3}
       spawnPosition: {x: 20, y: 0, z: -5.5}
       targetPosition: {x: 4, y: 0, z: -5.5}
+      targetObject: {fileID: 0}
   - attackTokens: 1
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 20, y: 0, z: 0}
       targetPosition: {x: -5, y: 0, z: 2}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 20, y: 0, z: -6.5}
       targetPosition: {x: -4, y: 0, z: -8.5}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: 20, y: 0, z: -3.25}
       targetPosition: {x: -5, y: 0, z: -3.25}
+      targetObject: {fileID: 0}
   - attackTokens: 2
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       spawnPosition: {x: -20, y: 0, z: -1}
       targetPosition: {x: -4, y: 0, z: -1}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 920134bc2f50b4d4999456682318862e, type: 3}
       spawnPosition: {x: -20, y: 0, z: -5.5}
       targetPosition: {x: -4, y: 0, z: -5.5}
+      targetObject: {fileID: 0}
   - attackTokens: 1
     enemies:
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: -20, y: 0, z: 0}
       targetPosition: {x: 4, y: 0, z: 2}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: -20, y: 0, z: -3.25}
       targetPosition: {x: 5, y: 0, z: -3.25}
+      targetObject: {fileID: 0}
     - enemyToSpawn: {fileID: 2087394924563482185, guid: 14605ce628c7d6143bfb8376e869749f, type: 3}
       spawnPosition: {x: -20, y: 0, z: -6.5}
       targetPosition: {x: 4, y: 0, z: -8.5}
+      targetObject: {fileID: 0}
 --- !u!4 &1042467500
 Transform:
   m_ObjectHideFlags: 0
@@ -5574,11 +5594,78 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7489692346776817560, guid: 58fe96252d177a34793db4535f5b34d8, type: 3}
   m_PrefabInstance: {fileID: 1526976534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1661149741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661149742}
+  m_Layer: 0
+  m_Name: TargetL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1661149742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661149741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743826832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1743826831 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 345318155175477215, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
   m_PrefabInstance: {fileID: 2545620500465951121}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1743826832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7969932982141465392, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+  m_PrefabInstance: {fileID: 2545620500465951121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1755396596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755396597}
+  m_Layer: 0
+  m_Name: TargetU
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1755396597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755396596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743826832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2031432613
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,7 +6176,13 @@ PrefabInstance:
       objectReference: {fileID: 1743826831}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7969932982141465392, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1661149742}
+    - targetCorrespondingSourceObject: {fileID: 7969932982141465392, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1755396597}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9711e963b5e6094187214a2bdce72e6, type: 3}
 --- !u!1001 &9192595751241212798
