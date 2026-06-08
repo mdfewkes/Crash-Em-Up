@@ -27,17 +27,20 @@ public class SteeringComponent : MonoBehaviour {
 		roamCooldown -= Time.deltaTime;
         if (targetObject == null && roam && roamCooldown <= 0f) {
             Vector2 playerpos = new Vector2(PlayerTag.playerTag.transform.position.x, PlayerTag.playerTag.transform.position.z);
-            if (Random.Range(0f, 1f) < 0.333f) {
+            if (Random.Range(0f, 1f) < 0.0) { // Roam nearby
                 target.x += Random.Range(-5f, 5f);
                 target.y += Random.Range(-5f, 5f);
-            } else if (Random.Range(0f, 1f) < 0.5f){
+                // Debug.Log("Nearby " + target);
+            } else if (Random.Range(0f, 1f) < 0.99f){ // Roam near the player
                 target.x = playerpos.x + Random.Range(-4f, 4f) + 2f;
                 target.y = playerpos.y + Random.Range(-5f, 5f) + 1f;
-            } else {
+                // Debug.Log("Near player " + target);
+            } else { // Close the gap
                 Vector2 pos = new Vector2(transform.position.x, transform.position.z);
                 Vector2 direction = playerpos - pos;
                 direction *= Random.Range(0.3f, 0.8f);
                 target = pos + direction;
+                // Debug.Log("Closer " + target);
             }
 
             target = new Vector2(Mathf.Clamp(target.x, -GameManager.bounds.x, GameManager.bounds.x), Mathf.Clamp(target.y, -GameManager.bounds.y, GameManager.bounds.y));
