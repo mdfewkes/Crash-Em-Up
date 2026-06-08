@@ -4,6 +4,10 @@ public class FastEnemy : EnemyBase {
 	[SerializeField] private EnemyAction fuAttack;
 	[SerializeField] private EnemyAction fdAttack;
 	[SerializeField] private EnemyAction bAttack;
+	[SerializeField] private EnemyAction buAttack;
+	[SerializeField] private EnemyAction bdAttack;
+	[SerializeField] private EnemyAction bsuAttack;
+	[SerializeField] private EnemyAction bsdAttack;
 
 	protected override void MoveState() {
 		base.MoveState();
@@ -23,6 +27,15 @@ public class FastEnemy : EnemyBase {
             if (forwardProduct < -0.98 && distance <= 4.0f) RequestStartActionState(bAttack);
             else if (forwardProduct > 0.0f && upProduct > 0.0f) RequestStartActionState(fuAttack);
             else if (forwardProduct > 0.0f && upProduct < 0.0f) RequestStartActionState(fdAttack);
+            else if (forwardProduct < 0.0f && upProduct > 0.0f && upProduct < 0.7f) RequestStartActionState(buAttack);
+            else if (forwardProduct < 0.0f && upProduct < 0.0f && upProduct > -0.7f) RequestStartActionState(bdAttack);
+            else if (forwardProduct < 0.0f && upProduct > 0.0f) RequestStartActionState(bsuAttack);
+            else if (forwardProduct < 0.0f && upProduct < 0.0f) RequestStartActionState(bsdAttack);
+		} else if (distance < 6.0f) {
+            if (forwardProduct < 0.0f && upProduct > 0.0f && upProduct < 0.7f) RequestStartActionState(buAttack);
+            else if (forwardProduct < 0.0f && upProduct < 0.0f && upProduct > -0.7f) RequestStartActionState(bdAttack);
+            else if (forwardProduct < 0.0f && upProduct > 0.0f) RequestStartActionState(bsuAttack);
+            else if (forwardProduct < 0.0f && upProduct < 0.0f) RequestStartActionState(bsdAttack);
 		}
 	}
 }

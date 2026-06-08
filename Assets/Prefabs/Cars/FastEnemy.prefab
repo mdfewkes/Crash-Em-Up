@@ -5429,6 +5429,34 @@ MonoBehaviour:
     recoveryTime: 1.5
     collisionDamage: 2
     spinoutDamage: 2
+  buAttack:
+    name: 
+    animationClip: {fileID: 7400000, guid: aa87f6af5f20248d984ee62eb811c7c4, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
+  bdAttack:
+    name: 
+    animationClip: {fileID: 7400000, guid: 1713147f7c5dc4ec9beb050f0d5d3354, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
+  bsuAttack:
+    name: 
+    animationClip: {fileID: 7400000, guid: 4351a83628362404f8f1f17f938ea711, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
+  bsdAttack:
+    name: 
+    animationClip: {fileID: 7400000, guid: 364dfd085ca87417d88afb2019140b1c, type: 2}
+    warmupTime: 0.5
+    recoveryTime: 1.5
+    collisionDamage: 1
+    spinoutDamage: 4
 --- !u!111 &2664293072824390008
 Animation:
   m_ObjectHideFlags: 0
@@ -5442,6 +5470,10 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 0981b63137769484c8c0fba6d175a103, type: 2}
   - {fileID: 7400000, guid: d0b8bf00db94e45bab8a4943c91642cb, type: 2}
+  - {fileID: 7400000, guid: aa87f6af5f20248d984ee62eb811c7c4, type: 2}
+  - {fileID: 7400000, guid: 1713147f7c5dc4ec9beb050f0d5d3354, type: 2}
+  - {fileID: 7400000, guid: 4351a83628362404f8f1f17f938ea711, type: 2}
+  - {fileID: 7400000, guid: 364dfd085ca87417d88afb2019140b1c, type: 2}
   - {fileID: 7400000, guid: a64a1b964b1034c3898b7fca8af07356, type: 2}
   - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   m_WrapMode: 0
@@ -5478,6 +5510,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 3}
   targetSelfOnAwake: 0
+  roam: 1
+  roamCooldownMin: 5
+  roamCooldownMax: 15
   target: {x: 0, y: 0}
   targetObject: {fileID: 0}
 --- !u!114 &3363349361453694741
