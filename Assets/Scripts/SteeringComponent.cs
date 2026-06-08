@@ -40,6 +40,8 @@ public class SteeringComponent : MonoBehaviour {
                 target = pos + direction;
             }
 
+            target = new Vector2(Mathf.Clamp(target.x, -GameManager.bounds.x, GameManager.bounds.x), Mathf.Clamp(target.y, -GameManager.bounds.y, GameManager.bounds.y));
+
 
             roamCooldown = Random.Range(roamCooldownMin, roamCooldownMax);
         }

@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-   
-
+    public static Vector2 bounds;
     public static event System.Action OnGameStart;
     public static event System.Action OnGameWon;
     public static event System.Action OnGameLost;
+
+    public Vector2 enemyBounds;
+
 
     private void OnEnable()
     {
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
         GameTimer.OnTimeRanOut += GameTimer_OnTimeRanOut;
         EnemySpawner.OnNoWave += RivalCarCounter_OnAllRivalCarDestroyed;
         PlayerController.OnPlayerDestroyed += OnPlayerDeath;
+
+        bounds = enemyBounds;
     }
 
     private void GameTimer_OnTimeRanOut()
@@ -43,8 +47,6 @@ public class GameManager : MonoBehaviour
             PlayerBound.SetBoundXForward(false);
         }
     }
-
-
 
     private void GameManager_performed(InputAction.CallbackContext obj)
     {
