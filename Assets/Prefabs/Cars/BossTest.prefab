@@ -7834,7 +7834,7 @@ MonoBehaviour:
   collisionDamage: 0.2
   spinoutDamage: 0.2
   collisionReceivedMultiplier: 0.5
-  spinoutReceivedMultiplier: 1
+  spinoutReceivedMultiplier: 0.25
 --- !u!65 &4576874430723800340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7933,8 +7933,8 @@ MonoBehaviour:
   onHitPrefab: {fileID: 6509392382980097960, guid: 02fb820df603e3545833c07b8400609d, type: 3}
   collisionDamage: 0.2
   spinoutDamage: 0.2
-  collisionReceivedMultiplier: 1
-  spinoutReceivedMultiplier: 0.5
+  collisionReceivedMultiplier: 0.5
+  spinoutReceivedMultiplier: 0.25
 --- !u!65 &7195984917147323667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8305,7 +8305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8200191081603398475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab31be80668ec452694ad479492d5738, type: 3}
+  m_Script: {fileID: 11500000, guid: 7158a888126c743ca89fc7475efd7e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackMultiplier: {x: 3, y: 3}
@@ -8342,6 +8342,20 @@ MonoBehaviour:
     recoveryTime: 1.5
     collisionDamage: 1.5
     spinoutDamage: 4
+  uAttack:
+    name: Up Attack
+    animationClip: {fileID: 7400000, guid: 3fda5a38531b045a39561d60c7a38f55, type: 2}
+    warmupTime: 0.75
+    recoveryTime: 0.25
+    collisionDamage: 2
+    spinoutDamage: 3
+  dAttack:
+    name: Down Attack
+    animationClip: {fileID: 7400000, guid: a4e723e5417a34fb9aed91ea0ac7b43a, type: 2}
+    warmupTime: 0.75
+    recoveryTime: 0.25
+    collisionDamage: 2
+    spinoutDamage: 3
 --- !u!111 &7144286963897997350
 Animation:
   m_ObjectHideFlags: 0
@@ -8357,6 +8371,8 @@ Animation:
   - {fileID: 7400000, guid: 34a732eadd2034d63b795ff9f2522391, type: 2}
   - {fileID: 7400000, guid: 8ee2d377a99454cfbba75942122ce1f4, type: 2}
   - {fileID: 7400000, guid: 269ca00e2e15540d88afcd91a08674bb, type: 2}
+  - {fileID: 7400000, guid: 3fda5a38531b045a39561d60c7a38f55, type: 2}
+  - {fileID: 7400000, guid: a4e723e5417a34fb9aed91ea0ac7b43a, type: 2}
   - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -8377,7 +8393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invincible: 0
   startingCrashHealth: 20
-  startingSpinoutHealth: 20
+  startingSpinoutHealth: 10
 --- !u!114 &6065248524293205230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8393,8 +8409,8 @@ MonoBehaviour:
   speed: {x: 5, y: 3}
   targetSelfOnAwake: 0
   roam: 1
-  roamCooldownMin: 5
-  roamCooldownMax: 15
+  roamCooldownMin: 3
+  roamCooldownMax: 10
   target: {x: 0, y: 0}
   targetObject: {fileID: 0}
 --- !u!114 &-1111871173812129324
@@ -13581,6 +13597,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6850404644634317459}
     m_Modifications:
     - target: {fileID: 6961103484438663310, guid: f148a3a4f97eba14e9078dc9b4d61286, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961103484438663310, guid: f148a3a4f97eba14e9078dc9b4d61286, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.799
       objectReference: {fileID: 0}
@@ -13642,6 +13662,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6850404644634317459}
     m_Modifications:
+    - target: {fileID: 6961103484438663310, guid: f148a3a4f97eba14e9078dc9b4d61286, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6961103484438663310, guid: f148a3a4f97eba14e9078dc9b4d61286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.019

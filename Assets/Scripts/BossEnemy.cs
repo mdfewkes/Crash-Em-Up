@@ -1,0 +1,34 @@
+using UnityEngine;
+
+public class BossEnemy : EnemyBase {
+    [SerializeField] private EnemyAction fuAttack;
+    [SerializeField] private EnemyAction ffAttack;
+    [SerializeField] private EnemyAction fdAttack;
+    [SerializeField] private EnemyAction bAttack;
+	[SerializeField] private EnemyAction uAttack;
+	[SerializeField] private EnemyAction dAttack;
+
+    protected override void MoveState() {
+        base.MoveState();
+
+        FindAction();
+    }
+
+    private void FindAction() {
+        if (PlayerTag.playerTag == null) return;
+
+        Vector2 direction = new Vector2(PlayerTag.playerTag.transform.position.x - transform.position.x, PlayerTag.playerTag.transform.position.z - transform.position.z).normalized;
+        float distance = Vector3.Distance(transform.position, PlayerTag.playerTag.transform.position);
+        float forwardProduct = Vector2.Dot(Vector2.right, direction);
+        float upProduct = Vector2.Dot(Vector2.up, direction);
+        
+        if (distance < 3.0f && upProduct > Mathf.Abs(0.7f)) {
+			if (upProduct > 0.0f) RequestStartActionState(uAttack);
+			else if (upProduct < 0.0f) RequestStartActionState(dAttack);
+		}else if (forwardProduct > 0.0f && distance <= 8.0f) {
+            if (forwardProduct > 0.98) RequestStartActionState(ffAttack);
+            else if (forwardProduct > 0.93 && upProduct > 0.0f) RequestStartActionState(fuAttack);
+            else if (forwardProduct > 0.93 && upProduct < 0.0f) RequestStartActionState(fdAttack);
+        } else if (forwardProduct < -0.98 && distance <= 4.0f) RequestStartActionState(bAttack);
+    }
+}
