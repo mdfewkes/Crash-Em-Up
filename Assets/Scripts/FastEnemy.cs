@@ -19,7 +19,7 @@ public class FastEnemy : EnemyBase {
         float forwardProduct = Vector2.Dot(Vector2.right, direction);
 		float upProduct = Vector2.Dot(Vector2.up, direction);
 
-		if (distance < 3.0f) {
+		if (distance < 4.0f) {
             if (forwardProduct < -0.98 && distance <= 4.0f) RequestStartActionState(bAttack);
             else if (forwardProduct > 0.0f && upProduct > 0.0f) RequestStartActionState(fuAttack);
             else if (forwardProduct > 0.0f && upProduct < 0.0f) RequestStartActionState(fdAttack);
