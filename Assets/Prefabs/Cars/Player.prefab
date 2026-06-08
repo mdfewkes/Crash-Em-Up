@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 1056793185057900294}
   - component: {fileID: 4802697996164181074}
   - component: {fileID: -7371215255832642727}
+  - component: {fileID: 6409362275252056166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -398,6 +399,38 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6409362275252056166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264766843483333341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9984f5798315f41e3b6b46ca42620cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 4125925075789002010, guid: 918fb0a156805418a8a1168eb8569181, type: 3}
+  hitClips:
+  - {fileID: 8300000, guid: 406578da2762b469d83f43af6b8585f9, type: 3}
+  - {fileID: 8300000, guid: f31ba5cedd09c4994920caf881546a1a, type: 3}
+  - {fileID: 8300000, guid: 317a13ab69d7c4d08803630e3e1b30d8, type: 3}
+  - {fileID: 8300000, guid: b80453fe108d1425e921969f2f34ef3f, type: 3}
+  - {fileID: 8300000, guid: b70c964434b964b8c863c39d8f2f35f1, type: 3}
+  - {fileID: 8300000, guid: c25269f467aa448dd891337c95212f47, type: 3}
+  - {fileID: 8300000, guid: fe05e45a80be443db9adfb8d4e74cfd7, type: 3}
+  - {fileID: 8300000, guid: c25269f467aa448dd891337c95212f47, type: 3}
+  - {fileID: 8300000, guid: fe05e45a80be443db9adfb8d4e74cfd7, type: 3}
+  - {fileID: 8300000, guid: c25269f467aa448dd891337c95212f47, type: 3}
+  - {fileID: 8300000, guid: fe05e45a80be443db9adfb8d4e74cfd7, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 8a132a66ac0774e9d92f83e51d877f73, type: 3}
+  - {fileID: 8300000, guid: 7796b5875e99c45dd94d53fd99360a3d, type: 3}
+  - {fileID: 8300000, guid: 20e6dd2d3592a49288e187aae609667a, type: 3}
+  - {fileID: 8300000, guid: 09084eb4f180f4f70965e9d1656c3122, type: 3}
+  - {fileID: 8300000, guid: 77d1085fd4bdc4998a4411f90ae0c183, type: 3}
+  - {fileID: 8300000, guid: 05e47a86485a54759bd6190f13887189, type: 3}
 --- !u!1 &4427743478762167388
 GameObject:
   m_ObjectHideFlags: 0
