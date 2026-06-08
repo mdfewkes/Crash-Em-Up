@@ -107,6 +107,10 @@ public class EnemyBase : CharacterBase {
 		maxTokens = amount;
 	}
 
+	public static void ResetTokens() {
+		tokens = maxTokens;
+	}
+
 	private void ActionStateWarmup() {
 		// Transition to Action phase
 		if (Time.time >= actionStartTime + currentAction.warmupTime) {

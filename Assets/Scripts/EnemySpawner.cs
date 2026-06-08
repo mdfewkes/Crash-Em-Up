@@ -50,6 +50,7 @@ public class EnemySpawner : MonoBehaviour {
         }
 
         EnemyBase.SetTotalTokens(waves[wave].attackTokens);
+        EnemyBase.ResetTokens();
 
         OnSpawnWave?.Invoke(enemyCount);
     }
