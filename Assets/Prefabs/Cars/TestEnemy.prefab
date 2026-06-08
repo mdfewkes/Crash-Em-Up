@@ -44,7 +44,7 @@ Transform:
   - {fileID: 2667719485010444473}
   - {fileID: 7876618597971186553}
   m_Father: {fileID: 7877656091663393852}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -10.000002, z: 0}
 --- !u!114 &6643823092286374097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5418,6 +5418,20 @@ MonoBehaviour:
     recoveryTime: 0.25
     collisionDamage: 2
     spinoutDamage: 3
+  uJab:
+    name: 
+    animationClip: {fileID: 7400000, guid: 7b61904fd0f87d244bf59523c5ea4d47, type: 2}
+    warmupTime: 0.1
+    recoveryTime: 0.5
+    collisionDamage: 3
+    spinoutDamage: 1
+  dJab:
+    name: 
+    animationClip: {fileID: 7400000, guid: 8e25d63c9f8f9684a88650d46e036867, type: 2}
+    warmupTime: 0.1
+    recoveryTime: 0.5
+    collisionDamage: 3
+    spinoutDamage: 1
 --- !u!111 &8239193323537161144
 Animation:
   m_ObjectHideFlags: 0
@@ -5432,6 +5446,8 @@ Animation:
   - {fileID: 7400000, guid: 626155ce851da1047994c8584aa2d130, type: 2}
   - {fileID: 7400000, guid: 3fda5a38531b045a39561d60c7a38f55, type: 2}
   - {fileID: 7400000, guid: a4e723e5417a34fb9aed91ea0ac7b43a, type: 2}
+  - {fileID: 7400000, guid: 7b61904fd0f87d244bf59523c5ea4d47, type: 2}
+  - {fileID: 7400000, guid: 8e25d63c9f8f9684a88650d46e036867, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5466,6 +5482,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 3}
   targetSelfOnAwake: 0
+  roam: 1
+  roamCooldownMin: 5
+  roamCooldownMax: 15
   target: {x: 0, y: 0}
   targetObject: {fileID: 0}
 --- !u!114 &7007051185743563560
