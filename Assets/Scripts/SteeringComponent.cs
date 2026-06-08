@@ -26,12 +26,18 @@ public class SteeringComponent : MonoBehaviour {
 	void Update() {
 		roamCooldown -= Time.deltaTime;
         if (targetObject == null && roam && roamCooldown <= 0f) {
-            if (Random.Range(0f, 1f) < 0.5f) {
+            Vector2 playerpos = new Vector2(PlayerTag.playerTag.transform.position.x, PlayerTag.playerTag.transform.position.z);
+            if (Random.Range(0f, 1f) < 0.333f) {
                 target.x += Random.Range(-5f, 5f);
                 target.y += Random.Range(-5f, 5f);
+            } else if (Random.Range(0f, 1f) < 0.5f){
+                target.x = playerpos.x + Random.Range(-4f, 4f) + 2f;
+                target.y = playerpos.y + Random.Range(-5f, 5f) + 1f;
             } else {
-                target.x = PlayerTag.playerTag.transform.position.x + Random.Range(-4f, 4f) + 2f;
-                target.y = PlayerTag.playerTag.transform.position.z + Random.Range(-5f, 5f) + 1f;
+                Vector2 pos = new Vector2(transform.position.x, transform.position.z);
+                Vector2 direction = playerpos - pos;
+                direction *= Random.Range(0.3f, 0.8f);
+                target = pos + direction;
             }
 
 
